@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.user_cycle.DateFragment"
+        android:background="@android:color/background_dark"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/date_fragment_tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/calender_header_background"
+            android:gravity="center"
+            android:padding="@dimen/_7sdp"
+            android:text="30 jan 2021"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            />
+
+
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+            android:background="@drawable/calender_background"
+            android:theme="@style/Date" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+
+            <Button
+                android:id="@+id/date_fragment_btn_confirm"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentStart="true"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_160sdp"
+                android:background="@drawable/calender_approve_btn_background"
+                android:text="تأكيد"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/date_fragment_btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_160sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:background="@drawable/calender_cancel_btn_background"
+                android:text="إلغاء"
+
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

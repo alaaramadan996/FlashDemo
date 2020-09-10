@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6D6DFF</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="blue">#028bff</color>
+    <color name="grey">#707070</color>
+    <color name="grey_between">#9B9B9B</color>
+    <color name="grey_text">#6A6A6A</color>
+    <color name="grey_back_ground">#EBEBEB</color>
+
+    <color name="grey_light">#ECEAEA</color>
+    <color name="red">#c41b1b</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="fire_Engine_red">#C41B1B</color>
+    <color name="dodger_blue">#028BFF</color>
+    <color name="sunglow">#FEE12A</color>
+    <color name="congress_blue">#00488F</color>
+    <color name="black_t">#BA2F2F2F</color>
+    <color name="white_t">#BCFFFFFF</color>
+    <color name="green_haze">#00A542</color>
+    <color name="graye_tundora">#424242</color>
+    <color name="clear_day">#F1FFF9</color>
+    <color name="red2">#FF0000</color>
+    <color name="white_gray">#FAFAFA</color>
+    <color name="bg">#FAFAFA</color>
+    <color name="gray_D8D8D8">#D8D8D8</color>
+    <color name="gray_ebebeb">#EBEBEB</color>
+    <color name="gray_7E7E7E">#7E7E7E</color>
+    <color name="graye_6A6A6A">#6A6A6A</color>
+    <color name="gray_dbdbdb">#dbdbdb</color>
+    <color name="gray_FAFAFA">#FAFAFA</color>
+    <color name="success">#32BEA6</color>
+    <color name="error">#E04F5F</color>
+    <color name="color_edittext">#c9a15b</color>
+
+    <color name="colorFragment">#000000</color>
+    <color name="colorApp">#6D6DFF</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorEditText">#4F4F4F</color>
+    <color name="colorButtonLogin">#B43838</color>
+    <color name="colorbtnRemmber">#4AA44C</color>
+    <color name="colortxtsecurty">#FFE400</color>
+</resources>

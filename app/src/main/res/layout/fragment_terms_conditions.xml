@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.user_cycle.TermsConditionsFragment"
+        android:orientation="vertical"
+        android:background="@color/colorFragment"
+        >
+        <TextView
+            style="@style/btn_style"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="تعيين حساب جديد"
+            android:background="@drawable/shape_btn_security"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="@dimen/_130sdp"
+
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/background_btn_terms"
+                android:gravity="center"
+
+                android:text="سياسة الخصوصية"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/button2"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/background_btn_terms"
+                android:gravity="center"
+                android:text=" اتفاقية الاستخدام"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="0dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+       <androidx.recyclerview.widget.RecyclerView
+           android:layout_marginTop="@dimen/_10sdp"
+           android:layout_marginBottom="@dimen/_20sdp"
+           android:layout_marginEnd="@dimen/_15sdp"
+           android:layout_marginStart="@dimen/_15sdp"
+           android:background="@color/colortxtsecurty"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:visibility="gone"
+           />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:background="@color/colortxtsecurty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+</layout>

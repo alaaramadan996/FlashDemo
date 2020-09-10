@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.user_cycle.NewAcountStepFiveFragment"
+        android:orientation="vertical"
+        android:background="@color/colorFragment"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@drawable/shape_btn_security"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+
+                android:layout_marginEnd="@dimen/_200sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:gravity="center"
+                android:text=" 5/6"
+                android:textColor="@color/colorFragment"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_110sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_110sdp"
+
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="التأكيد الامني "
+                android:textColor="@color/colorFragment"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/li_style"
+            >
+
+            <EditText
+                android:id="@+id/new_account_step_five_et_pin_code"
+                style="@style/et_style"
+                android:inputType="numberPassword"
+                android:maxLength="4"
+                android:password="true" />
+            <TextView
+                android:text=" التأكيد الأمني "
+                style="@style/tv_style"
+                />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/li_style"
+            >
+
+            <EditText
+                android:id="@+id/new_account_step_five_et_pin_code_confirm"
+                style="@style/et_style"
+                android:inputType="numberPassword"
+                android:maxLength="4"
+
+                android:password="true" />
+            <TextView
+                android:text=" اعادة التأكيد الأمني "
+                style="@style/tv_style"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/new_account_step_five_btn_next"
+            style="@style/btn_style"
+            android:text=" المرحلة الثانية"
+            />
+        <TextView
+            android:id="@+id/new_account_step_five_tv_show_message"
+            style="@style/txt_res"
+            />
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/bottom_nav_auth_condition"
+        android:icon="@drawable/ic_condition_iconn"
+        android:enabled="true"
+        android:title="الشروط و الاجكام"
+        app:showAsAction="ifRoom"
+
+
+        />
+    <item
+        android:id="@+id/bottom_nav_auth_contact_with_us"
+        android:icon="@drawable/ic_conect_appicon"
+        android:title="تواصل معنا"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+
+        />
+    <item
+        android:id="@+id/bottom_nav_auth_new_account"
+        android:icon="@drawable/ic_conect_appicon"
+        android:title="حساب جديد"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+
+        />
+    <item
+        android:id="@+id/bottom_nav_auth_login"
+        android:icon="@drawable/ic_login_baricon"
+        android:title="تسجيل الدخول"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+       
+
+        />
+
+
+
+
+
+</menu>
