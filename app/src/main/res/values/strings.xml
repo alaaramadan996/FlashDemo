@@ -16,6 +16,21 @@
     <string name="my_account">الملف الشخصي</string>
     <string name="security_Account">امن حساب</string>
     <string name="logout">تسجيل الخروج</string>
+    
+    <!--check_password-->
+    <string name="check_password_They_should_be_the_same">يجب ان يكونوا متشابهين</string>
+    <string name="check_password_Password_must_be_8_letters_and_numbers">كلمة المرور يجب ان تكون 8 حروف و ارقام</string>
+
+    <!--terms_condition-->
+    <string name="terms_condition_privacy_policy">سياسة الخصوصية</string>
+    <string name="terms_condition_Usage_Agreement">اتفاقية الاستخدام</string>
+
+    <!--login-->
+    <string name="login_txt_btn_login">دخول</string>
+    <string name="login_txt_tv_phone">رقم الحساب</string>
+    <string name="login_txt_tv_password">كلمة المرور</string>
+    <string name="login_txt_btn_recovery">استعادة</string>
+
 
     <string name="please_wait">من فضلك انتظر...</string>
     <string name="no_internet_connection">لا يوجد إتصال بالإنترنت, برجاء المحاولة لاحقا.</string>

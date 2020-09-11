@@ -31,53 +31,57 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
-                android:layout_width="@dimen/_240sdp"
+                android:id="@+id/terms_condition_fragment_btn_privacy_policy"
+                android:layout_width="@dimen/_200sdp"
 
                 android:layout_height="@dimen/_35sdp"
-                android:background="@drawable/background_btn_terms"
+                android:background="@drawable/bk_log_out"
                 android:gravity="center"
 
-                android:text="سياسة الخصوصية"
+                android:text="@string/terms_condition_privacy_policy"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/button2"
+                app:layout_constraintEnd_toStartOf="@+id/terms_condition_fragment_btn_usage_agreement"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="0dp" />
 
             <Button
-                android:id="@+id/button2"
-                android:layout_width="@dimen/_240sdp"
+                android:id="@+id/terms_condition_fragment_btn_usage_agreement"
+                android:layout_width="@dimen/_200sdp"
                 android:layout_height="@dimen/_35sdp"
-                android:background="@drawable/background_btn_terms"
+                android:background="@drawable/bk_log_in"
                 android:gravity="center"
-                android:text=" اتفاقية الاستخدام"
+                android:text="@string/terms_condition_Usage_Agreement"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:layout_editor_absoluteY="0dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-       <androidx.recyclerview.widget.RecyclerView
-           android:layout_marginTop="@dimen/_10sdp"
-           android:layout_marginBottom="@dimen/_20sdp"
-           android:layout_marginEnd="@dimen/_15sdp"
-           android:layout_marginStart="@dimen/_15sdp"
-           android:background="@color/colortxtsecurty"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:visibility="gone"
-           />
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/terms_condition_fragment_rv_privacy_policy"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             android:layout_marginStart="@dimen/_15sdp"
             android:background="@color/colortxtsecurty"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/terms_condition_fragment_rv_usage_agreement"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:background="@color/colortxtsecurty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            />
 
 
     </LinearLayout>

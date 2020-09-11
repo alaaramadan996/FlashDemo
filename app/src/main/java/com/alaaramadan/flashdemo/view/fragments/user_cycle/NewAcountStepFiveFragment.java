@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.databinding.DataBindingUtil;
 
 import com.alaaramadan.flashdemo.R;
+import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
 import com.alaaramadan.flashdemo.databinding.FragmentNewAcountStepFiveBinding;
 import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
@@ -18,6 +19,7 @@ import static com.alaaramadan.flashdemo.utils.HelperMethod.replaceFragment;
 
 public class NewAcountStepFiveFragment extends BaseFragment {
     private FragmentNewAcountStepFiveBinding binding;
+    private SharedPreferencesManger sharedPreferencesManger;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class NewAcountStepFiveFragment extends BaseFragment {
            String pinCode=binding.newAccountStepFiveEtPinCode.getText().toString();
            String pinCodeConfirm=binding.newAccountStepFiveEtPinCodeConfirm.getText().toString();
            if((pinCode.length()==4)&&(pinCode==pinCodeConfirm)){
+               sharedPreferencesManger.saveData( getActivity(),"pinCode" ,pinCode);
                replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAccountStepSixFragment() );
            }else {
                binding.newAccountStepFiveTvShowMessage.setText( R.string.error );

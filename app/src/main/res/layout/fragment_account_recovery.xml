@@ -22,7 +22,10 @@
             android:layout_marginTop="@dimen/_10sdp"
             >
             <EditText
+                android:id="@+id/account_recovery_et_phone"
                 style="@style/et_style"
+                android:maxLength="11"
+                android:inputType="phone"
 
                 />
             <TextView
@@ -31,9 +34,11 @@
                 />
         </LinearLayout>
         <Button
+            android:id="@+id/account_recovery_btn_send"
             style="@style/btn_style"
             android:text="أرسال" />
         <TextView
+            android:id="@+id/account_recovery_tv_show_massage"
           style="@style/txt_res"
             />
 

@@ -48,6 +48,7 @@ public class CityListFragment extends Fragment {
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_city_list, container, false );
 
         apiService = getClient().create(ApiService.class);
+        setNameCitiesRecycler();
         return binding.getRoot();
     }
 
@@ -61,12 +62,12 @@ public class CityListFragment extends Fragment {
         binding.cityListFragmentRvCity.setAdapter(cityListAdapter);
 
         if (dataCities.size() == 0) {
-            getNameClassesList();
+            getNameCityList();
         }
 
 
     }
-    private void getNameClassesList() {
+    private void getNameCityList() {
         if (InternetState.isConnected( getActivity() )){
             showProgressDialog(getActivity(), getString(R.string.please_wait));
             apiService.getCityList( "get","SystemCity","12" ).enqueue( new Callback<ListCity>() {

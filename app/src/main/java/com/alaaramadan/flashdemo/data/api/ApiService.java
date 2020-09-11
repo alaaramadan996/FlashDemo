@@ -1,11 +1,16 @@
 package com.alaaramadan.flashdemo.data.api;
 
 
+import com.alaaramadan.flashdemo.data.model.CheckPhone.CheckPhone;
 import com.alaaramadan.flashdemo.data.model.CheckRegistration.CheckRegistration;
 import com.alaaramadan.flashdemo.data.model.ConnectUs.ConnectUs;
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
 import com.alaaramadan.flashdemo.data.model.ListCity.ListCity;
 import com.alaaramadan.flashdemo.data.model.ListGovernorate.ListGovernorate;
+import com.alaaramadan.flashdemo.data.model.ListPrivacyPolicy.ListPrivacyPolicy;
+import com.alaaramadan.flashdemo.data.model.ListUsageAgreement.ListUsageAgreement;
+import com.alaaramadan.flashdemo.data.model.Registeration.Registeration;
+import com.alaaramadan.flashdemo.data.model.UserRestore.UserRestore;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -36,9 +41,9 @@ public interface ApiService {
 
     @POST("index.php")
     @FormUrlEncoded
-    Call<ListGovernorate> CheckPhone(@Field("mode") String mode,
-                                     @Field("type") String type,
-                                     @Field( "phone" ) String phone
+    Call<CheckPhone> CheckPhone(@Field("mode") String mode,
+                                @Field("type") String type,
+                                @Field( "phone" ) String phone
     );
 
     @POST("index.php")
@@ -47,6 +52,39 @@ public interface ApiService {
                                               @Field("type") String type
     );
 
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<Registeration> Registration(@Field("mode") String mode,
+                                     @Field("type") String type,
+                                     @Field( "phone" ) String phone,
+                                     @Field( "PIN_code" ) String PIN_code,
+                                     @Field( "confirm_PIN_code" ) String confirm_PIN_code,
+                                     @Field( "password" ) String password,
+                                     @Field( "confirm_password" ) String confirm_password,
+                                     @Field( "name" ) String name,
+                                     @Field( "udid" ) String udid,
+                                     @Field( "gender" ) String gender,
+                                     @Field( "date_of_birth" ) String date_of_birth,
+                                     @Field( "city_id" ) String city_id,
+                                     @Field( "gov_id" ) String gov_id
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<UserRestore> restoreAccount(@Field("mode") String mode,
+                                         @Field("type") String type,
+                                         @Field( "phone" ) String phone
+    );
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<ListPrivacyPolicy> getPrivacyPolicyList(@Field("mode") String mode,
+                                               @Field("type") String type
+    );
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<ListUsageAgreement> getUsageAgreementList(@Field("mode") String mode,
+                                                   @Field("type") String type
+    );
 
    /* //AUTH
     @POST("login")

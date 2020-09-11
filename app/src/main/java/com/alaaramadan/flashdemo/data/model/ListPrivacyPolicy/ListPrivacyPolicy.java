@@ -1,18 +1,18 @@
 
-package com.alaaramadan.flashdemo.data.model.CheckPhone;
+package com.alaaramadan.flashdemo.data.model.ListPrivacyPolicy;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CheckPhone {
+public class ListPrivacyPolicy {
 
     @SerializedName("type")
     @Expose
     private String type;
     @SerializedName("data")
     @Expose
-    private DataCheck data = null;
+    private List<DataPrivacyPolicy> data = null;
 
     public String getType() {
         return type;
@@ -22,11 +22,11 @@ public class CheckPhone {
         this.type = type;
     }
 
-    public DataCheck getData() {
+    public List<DataPrivacyPolicy> getData() {
         return data;
     }
 
-    public void setData(DataCheck data) {
+    public void setData(List<DataPrivacyPolicy> data) {
         this.data = data;
     }
 

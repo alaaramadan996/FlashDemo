@@ -13,6 +13,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.format.DateFormat;
 import android.transition.TransitionManager;
@@ -66,6 +67,8 @@ import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import pl.droidsonroids.gif.GifImageView;
+
+import static androidx.core.content.ContextCompat.getSystemService;
 
 public class HelperMethod {
     public static ProgressDialog progressDialog;
@@ -561,6 +564,15 @@ public class HelperMethod {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
+    }
+
+
+    public static class YourActivity extends Activity {
+        //...Omitted code
+        public String getUdId() {
+            String id = android.provider.Settings.System.getString(super.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+            return id;
+        }
     }
 
 }

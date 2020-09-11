@@ -19,35 +19,41 @@
                 style="@style/li_style"
                 >
                 <EditText
+                    android:id="@+id/login_fragment_et_phone"
                     style="@style/et_style"
+                    android:maxLength="11"
 
                     />
                 <TextView
                     style="@style/tv_style"
-                    android:text="رقم الحساب"
+                    android:text="@string/login_txt_tv_phone"
                     />
             </LinearLayout>
             <LinearLayout
               style="@style/li_style"
                 >
                 <EditText
+                    android:id="@+id/login_fragment_et_password"
+                    android:maxLength="30"
                     style="@style/et_style"
                     />
                 <TextView
                     style="@style/tv_style"
-                    android:text="كلمة المروور"
+                    android:text="@string/login_txt_tv_password"
                     />
             </LinearLayout>
             <Button
+                android:id="@+id/login_fragment_btn_login"
                 style="@style/btn_style"
-                android:text="الدخول"
+                android:text="@string/login_txt_btn_login"
                 />
             <TextView
                style="@style/txt_res"
                 />
             <Button
+                android:id="@+id/login_fragment_btn_recovery"
                 style="@style/btn_style"
-                android:text="استعاده"
+                android:text="@string/login_txt_btn_recovery"
                 android:background="@drawable/shape_btn_reb"
                 />
 

@@ -1,5 +1,6 @@
 package com.alaaramadan.flashdemo.view.fragments.user_cycle;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -10,9 +11,12 @@ import androidx.databinding.DataBindingUtil;
 
 import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.data.api.ApiService;
+import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
+import com.alaaramadan.flashdemo.data.model.CheckPhone.CheckPhone;
 import com.alaaramadan.flashdemo.data.model.ConnectUs.ConnectUs;
 import com.alaaramadan.flashdemo.data.model.ListGovernorate.ListGovernorate;
 import com.alaaramadan.flashdemo.databinding.FragmentNewAcountStepTwoBinding;
+import com.alaaramadan.flashdemo.utils.HelperMethod;
 import com.alaaramadan.flashdemo.utils.InternetState;
 import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
@@ -31,8 +35,7 @@ import static com.alaaramadan.flashdemo.utils.HelperMethod.showProgressDialog;
 public class NewAcountStepTwoFragment extends BaseFragment {
     private FragmentNewAcountStepTwoBinding binding;
     private ApiService apiService;
-
-
+    private SharedPreferencesManger sharedPreferencesManger;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,8 +43,11 @@ public class NewAcountStepTwoFragment extends BaseFragment {
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_new_acount_step_two, container, false );
         apiService = getClient().create(ApiService.class);
         onClickViews();
+
         return binding.getRoot();
     }
+
+
 
     private void onClickViews() {
         setOnClick( binding.newAccountStepTwoBtnNext );
@@ -73,30 +79,35 @@ public class NewAcountStepTwoFragment extends BaseFragment {
         if (phone==null){
             binding.newAccountStepTwoTvShowMessage.setText("برجاء ادخال الرقم" );
         }else {
-        if (InternetState.isConnected( getActivity() )){
-            showProgressDialog(getActivity(), getString(R.string.please_wait));
-            apiService.CheckPhone("check","UserPhone",""  ).enqueue( new Callback<ListGovernorate>() {
-                @Override
-                public void onResponse(Call<ListGovernorate> call, Response<ListGovernorate> response) {
-                    if (response.body().getType()=="success"){
-                       replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
-                    }
-                    else {
-                        binding.newAccountStepTwoTvShowMessage.setText( response.body().getType() );
-                    }
+            if (phone.length()==11){
+                if (InternetState.isConnected( getActivity() )){
+                    showProgressDialog(getActivity(), getString(R.string.please_wait));
+                    apiService.CheckPhone("check","UserPhone",""  ).enqueue( new Callback<CheckPhone>() {
+                        @Override
+                        public void onResponse(Call<CheckPhone> call, Response<CheckPhone> response) {
+                            if (response.body().getType()=="success"){
+                                sharedPreferencesManger.saveData( getActivity(),"phone",phone );
+                               replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
+                            }
+                            else {
+                                binding.newAccountStepTwoTvShowMessage.setText( response.body().getData().getTitle() );
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<CheckPhone> call, Throwable t) {
+                            binding.newAccountStepTwoTvShowMessage.setText( t.getMessage() );
+
+                        }
+                    } );
+
+                }else {
+                    dismissProgressDialog();
+                    onCreateErrorToast(getActivity(), getString(R.string.no_internet_connection));
                 }
-
-                @Override
-                public void onFailure(Call<ListGovernorate> call, Throwable t) {
-                    binding.newAccountStepTwoTvShowMessage.setText( t.getMessage() );
-
-                }
-            } );
-
         }else {
-            dismissProgressDialog();
-            onCreateErrorToast(getActivity(), getString(R.string.no_internet_connection));
-        }
+                binding.newAccountStepTwoTvShowMessage.setText( "برجاء ادخال 11 رقم" );
+            }
         }
     }
 }

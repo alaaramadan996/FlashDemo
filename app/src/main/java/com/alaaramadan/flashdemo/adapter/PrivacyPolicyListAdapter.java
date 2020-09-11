@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
-import com.alaaramadan.flashdemo.data.model.ListGovernorate.DataGovernorate;
+import com.alaaramadan.flashdemo.data.model.ListPrivacyPolicy.DataPrivacyPolicy;
 import com.alaaramadan.flashdemo.utils.HelperMethod;
 import com.alaaramadan.flashdemo.view.activities.AuthActivity;
 import com.alaaramadan.flashdemo.view.fragments.user_cycle.NewAcountStepThreeFragment;
@@ -25,29 +25,28 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.alaaramadan.flashdemo.data.local.SharedPreferencesManger.CITY_DATA;
-import static com.alaaramadan.flashdemo.data.local.SharedPreferencesManger.GOV_DATA;
 
-public class GovListAdapter extends RecyclerView.Adapter<GovListAdapter.ViewHolder> {
+public class PrivacyPolicyListAdapter extends RecyclerView.Adapter<PrivacyPolicyListAdapter.ViewHolder> {
 
 
     private Context context;
     private Activity activity;
-    List<DataGovernorate> dataGovernorates = new ArrayList<>();
+    List<DataPrivacyPolicy> dataPrivacyPolicies = new ArrayList<>();
     public int positions;
     private SharedPreferencesManger sharedPreferencesManger;
 
 
-    public GovListAdapter(Context context, Activity activity
-            , List<DataGovernorate> dataGovernorates ) {
+    public PrivacyPolicyListAdapter(Context context, Activity activity
+            , List<DataPrivacyPolicy> dataPrivacyPolicies ) {
         this.context = context;
         this.activity = activity;
-        this.dataGovernorates = dataGovernorates;
+        this.dataPrivacyPolicies = dataPrivacyPolicies;
 
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate( R.layout.item_governorate_list,
+        View view = LayoutInflater.from(context).inflate( R.layout.item_rc_condition_fragment,
                 parent, false);
 
         return new ViewHolder(view);
@@ -63,33 +62,27 @@ public class GovListAdapter extends RecyclerView.Adapter<GovListAdapter.ViewHold
 
     public void setData(ViewHolder holder,int position){
         positions =position;
-        holder.textView.setText( dataGovernorates.get( position ).getNameAr() );
+        holder.tvTitle.setText( dataPrivacyPolicies.get( position ).getTitle() );
+        holder.tvContent.setText( dataPrivacyPolicies.get( position ).getContent() );
 
     }
 
     private void setAction(ViewHolder holder, int position) {
 
-        holder.view.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AuthActivity authActivity=(AuthActivity) activity;
-                sharedPreferencesManger.saveData( activity, CITY_DATA,dataGovernorates.get( position ));
-                HelperMethod.replaceFragment( authActivity.getSupportFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
 
-            }
-        } );
 
     }
 
     @Override
     public int getItemCount() {
-        return dataGovernorates.size();
+        return dataPrivacyPolicies.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-        @BindView( R.id.item_governorate_tv_name_gov )
-        TextView textView;
+        @BindView( R.id.item_rv_privacy_policy_tv_title )
+        TextView tvTitle;
+        @BindView( R.id.item_rv_privacy_policy_tv_content )
+        TextView tvContent;
         private View view;
         public ViewHolder(@NonNull View itemView) {
             super( itemView );

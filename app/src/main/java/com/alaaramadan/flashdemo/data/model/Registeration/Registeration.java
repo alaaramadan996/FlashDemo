@@ -1,18 +1,18 @@
 
-package com.alaaramadan.flashdemo.data.model.CheckPhone;
+package com.alaaramadan.flashdemo.data.model.Registeration;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CheckPhone {
+public class Registeration {
 
     @SerializedName("type")
     @Expose
     private String type;
     @SerializedName("data")
     @Expose
-    private DataCheck data = null;
+    private DataRegsteration data = null;
 
     public String getType() {
         return type;
@@ -22,11 +22,11 @@ public class CheckPhone {
         this.type = type;
     }
 
-    public DataCheck getData() {
+    public DataRegsteration getData() {
         return data;
     }
 
-    public void setData(DataCheck data) {
+    public void setData(DataRegsteration data) {
         this.data = data;
     }
 

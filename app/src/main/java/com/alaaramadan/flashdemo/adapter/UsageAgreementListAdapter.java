@@ -12,11 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
-import com.alaaramadan.flashdemo.utils.HelperMethod;
-import com.alaaramadan.flashdemo.view.activities.AuthActivity;
-import com.alaaramadan.flashdemo.view.activities.HomeActivity;
-import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
-import com.alaaramadan.flashdemo.view.fragments.user_cycle.NewAcountStepThreeFragment;
+import com.alaaramadan.flashdemo.data.model.ListPrivacyPolicy.DataPrivacyPolicy;
+import com.alaaramadan.flashdemo.data.model.ListUsageAgreement.DataUsageAgreement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,29 +21,27 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.alaaramadan.flashdemo.data.local.SharedPreferencesManger.CITY_DATA;
-
-public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHolder> {
+public class UsageAgreementListAdapter extends RecyclerView.Adapter<UsageAgreementListAdapter.ViewHolder> {
 
 
     private Context context;
     private Activity activity;
-    List<DataCity> dataCities = new ArrayList<>();
+    List<DataUsageAgreement> dataUsageAgreements = new ArrayList<>();
     public int positions;
     private SharedPreferencesManger sharedPreferencesManger;
 
 
-    public CityListAdapter(Context context, Activity activity
-            , List<DataCity> dataCities ) {
+    public UsageAgreementListAdapter(Context context, Activity activity
+            , List<DataUsageAgreement> dataUsageAgreements ) {
         this.context = context;
         this.activity = activity;
-        this.dataCities = dataCities;
+        this.dataUsageAgreements = dataUsageAgreements;
 
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate( R.layout.item_city_list,
+        View view = LayoutInflater.from(context).inflate( R.layout.item_recycleview_condition,
                 parent, false);
 
         return new ViewHolder(view);
@@ -62,33 +57,27 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHo
 
     public void setData(ViewHolder holder,int position){
         positions =position;
-        holder.textView.setText( dataCities.get( position ).getNameAr() );
+        holder.tvTitle.setText( dataUsageAgreements.get( position ).getTitle() );
+        holder.tvContent.setText( dataUsageAgreements.get( position ).getContent() );
 
     }
 
     private void setAction(ViewHolder holder, int position) {
 
-        holder.view.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AuthActivity authActivity=(AuthActivity) activity;
-                sharedPreferencesManger.saveData( activity, CITY_DATA,dataCities.get( position ));
-                HelperMethod.replaceFragment( authActivity.getSupportFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
 
-            }
-        } );
 
     }
 
     @Override
     public int getItemCount() {
-        return dataCities.size();
+        return dataUsageAgreements.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-        @BindView( R.id.item_city_list_tv_city )
-        TextView textView;
+        @BindView( R.id.item_rv_usage_agreement_tv_title )
+        TextView tvTitle;
+        @BindView( R.id.item_rv_usage_agreement_tv_content )
+        TextView tvContent;
         private View view;
         public ViewHolder(@NonNull View itemView) {
             super( itemView );

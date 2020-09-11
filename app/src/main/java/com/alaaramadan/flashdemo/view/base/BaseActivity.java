@@ -22,6 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         return a;
     }
 
+
     @Override
     public void onBackPressed() {
         baseFragment.onBack();

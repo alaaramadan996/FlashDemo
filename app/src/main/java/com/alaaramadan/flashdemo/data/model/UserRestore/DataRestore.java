@@ -1,10 +1,10 @@
 
-package com.alaaramadan.flashdemo.data.model.CheckPhone;
+package com.alaaramadan.flashdemo.data.model.UserRestore;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DataCheck {
+public class DataRestore {
 
     @SerializedName("title")
     @Expose
