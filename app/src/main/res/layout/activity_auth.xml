@@ -15,8 +15,10 @@
 
         >
 
+
         <LinearLayout
-            android:id="@+id/app_bar"
+
+            android:id="@+id/auth_activity_app_bar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:background="@color/colorApp"
@@ -31,6 +33,8 @@
         </LinearLayout>
 
         <LinearLayout
+
+            android:id="@+id/auth_activity_linear_layout_content"
             android:layout_marginTop="@dimen/_40sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -39,6 +43,7 @@
             tools:context=".view.activities.AuthActivity">
 
             <ImageView
+                android:id="@+id/auth_activity_ImageView_ads"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_180sdp"
                 android:layout_marginTop="@dimen/_2sdp"
@@ -75,10 +80,25 @@
 
 
         </LinearLayout>
+<LinearLayout
+    android:id="@+id/auth_activity_framelayout"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <fragment
+        android:id="@+id/auth_activity_frameLayout_contain_city"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>
 
 
 
         <TextView
+
             android:id="@+id/activity_auth_tv_bottom"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
 import com.alaaramadan.flashdemo.data.model.ListGovernorate.DataGovernorate;
+import com.alaaramadan.flashdemo.data.model.Login.AuthData;
 import com.google.gson.Gson;
 
 public class SharedPreferencesManger {
@@ -13,7 +14,7 @@ public class SharedPreferencesManger {
     private static String LANG = "LANG";
     public static final String CITY_DATA = "CITY_DATA";
     public static final String GOV_DATA = "GOV_DATA";
-    public static final String ADDRESS = "ADDRESS";
+    public static final String AUTH_DATA = "AUTH_DATA";
     public static final String ABOUT = "ABOUT";
     public static final String PRIVACY = "PRIVACY";
     public static final String LESSON_SHOW = "LESSON_SHOW";
@@ -75,6 +76,17 @@ public static void saveDateApp(String value_Key,String value_data)
         setSharedPreferences(activity);
 
         return sharedPreferences.getBoolean(data_Key, false);
+    }
+
+    public static AuthData loadAuthData(Activity activity) {
+        AuthData authData = null;
+
+        Gson gson = new Gson();
+        if (loadData(activity, AUTH_DATA) != null) {
+            authData = gson.fromJson(loadData(activity, AUTH_DATA), AuthData.class);
+        }
+
+        return authData;
     }
 
     public static DataCity loadCityData(Activity activity) {

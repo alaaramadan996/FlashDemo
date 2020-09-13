@@ -52,6 +52,7 @@ public class TermsConditionsFragment extends BaseFragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_terms_conditions, container, false );
         apiService = getClient().create(ApiService.class);
+        onBack();
         onClickViews();
         setPrivacyPolicyList();
         setUsageAgreementList();

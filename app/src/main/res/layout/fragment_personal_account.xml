@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:background="@color/colorFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.home.PersonalAccountFragment"
+        android:orientation="vertical"
+        >
+        <TextView
+            style="@style/btn_style"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/Personal_data"
+            android:background="@drawable/shape_btn_security"
+            />
+        <LinearLayout
+
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bk_linear_layout"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+
+            >
+            <LinearLayout
+                style="@style/li_style"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/name"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/li_style"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/namber_phone"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/li_style"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/birthday"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/li_style"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/gender"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/li_style"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/governorate"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/li_style"
+                android:layout_marginBottom="@dimen/_10sdp"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/city"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            style="@style/btn_style"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/Account_details"
+            android:background="@drawable/shape_btn_security"
+            />
+        <LinearLayout
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bk_linear_layout"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            >
+            <LinearLayout
+                style="@style/li_style"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/date_create"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/li_style"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/Account_status"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/new_account_step_five_btn_next"
+                style="@style/btn_style"
+                android:text="@string/activate_the_account"
+                android:textColor="@color/white"
+                android:background="@drawable/bk_log_in"
+                />
+            <LinearLayout
+                style="@style/li_style"
+                >
+
+                <TextView
+                    android:id="@+id/new_account_step_five_et_pin_code"
+                    style="@style/et_style"
+                    android:inputType="numberPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+                <TextView
+                    android:text="@string/The_remaining_period"
+                    style="@style/tv_style"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/personal_fragment_tv_show_message"
+                style="@style/txt_res"
+                android:layout_marginBottom="@dimen/_10sdp"
+                />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

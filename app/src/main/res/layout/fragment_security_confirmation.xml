@@ -22,7 +22,10 @@
             style="@style/li_style"
             >
             <EditText
+                android:id="@+id/security_confirmation_fragment_et_pin_code"
                 style="@style/et_style"
+                android:maxLength="4"
+                android:inputType="number"
 
                 />
             <TextView
@@ -30,10 +33,12 @@
                 android:text="التاكيد الامني" />
         </LinearLayout>
         <Button
+            android:id="@+id/security_confirmation_fragment_btn_confirm"
             style="@style/btn_style"
             android:text="تأكيد"
             />
         <TextView
+            android:id="@+id/security_confirmation_fragment_tv_show_message"
             style="@style/txt_res"
 
             />

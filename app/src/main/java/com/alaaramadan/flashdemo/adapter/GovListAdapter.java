@@ -2,6 +2,7 @@ package com.alaaramadan.flashdemo.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,9 +73,10 @@ public class GovListAdapter extends RecyclerView.Adapter<GovListAdapter.ViewHold
         holder.view.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPreferencesManger.saveData( activity, GOV_DATA,dataGovernorates.get( position ));
+                Intent intent = new Intent (v.getContext(), AuthActivity.class);
+                context.startActivity( intent );
                 AuthActivity authActivity=(AuthActivity) activity;
-                sharedPreferencesManger.saveData( activity, CITY_DATA,dataGovernorates.get( position ));
-                HelperMethod.replaceFragment( authActivity.getSupportFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
 
             }
         } );

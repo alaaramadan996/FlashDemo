@@ -1,52 +1,62 @@
 package com.alaaramadan.flashdemo.view.fragments.user_cycle;
 
+import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.databinding.DataBindingUtil;
+import android.widget.Button;
 
 import com.alaaramadan.flashdemo.R;
-import com.alaaramadan.flashdemo.data.api.ApiService;
 import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
-import com.alaaramadan.flashdemo.databinding.FragmentSecurityConfirmationBinding;
+import com.alaaramadan.flashdemo.databinding.FragmentGenderBinding;
+import com.alaaramadan.flashdemo.view.activities.AuthActivity;
 import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
+import static androidx.databinding.adapters.ViewBindingAdapter.setOnClick;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.disappearKeypad;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.replaceFragment;
 
 
-public class SecurityConfirmationFragment extends BaseFragment {
-    private FragmentSecurityConfirmationBinding binding;
-    private ApiService apiService;
+public class GenderFragment extends BaseFragment {
+    private FragmentGenderBinding binding;
     private SharedPreferencesManger sharedPreferencesManger;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding= DataBindingUtil.inflate( inflater,R.layout.fragment_security_confirmation, container, false );
-        onBack();
+        binding= DataBindingUtil.inflate( inflater, R.layout.fragment_gender, container, false  );
+
         onClickViews();
         return binding.getRoot();
     }
 
+
     private void onClickViews() {
-        setOnClick( binding.securityConfirmationFragmentBtnConfirm );
+        setOnClick( binding.genderFragmentBtnMale );
+        setOnClick( binding.genderFragmentBtnFemale );
     }
+
+
+
     @Override
     public void onClickItem(final View view) {
         disappearKeypad(getActivity(), view);
         synchronized (view) {
             view.setEnabled(false);
             switch (view.getId()) {
-                case R.id.login_fragment_btn_login:
-                    Login();
+                case R.id.gender_fragment_btn_female:
+                    sharedPreferencesManger.saveData( getActivity(),"Gender","ذكر" );
+                    saveCheck();
                     break;
-                case R.id.login_fragment_btn_recovery:
-                    replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new AccountRecoveryFragment() );
-
+                case R.id.gender_fragment_btn_male:
+                    sharedPreferencesManger.saveData( getActivity(),"Gender","انثي" );
+                    saveCheck();
                     break;
 
             }
@@ -57,10 +67,14 @@ public class SecurityConfirmationFragment extends BaseFragment {
                 public void run() {
                     view.setEnabled(true);
                 }
-            }, 1000);
+            }, 500);
         }
     }
 
-    private void Login() {
+    public void saveCheck()
+    {
+        Intent intent = new Intent(getActivity(), AuthActivity.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 }

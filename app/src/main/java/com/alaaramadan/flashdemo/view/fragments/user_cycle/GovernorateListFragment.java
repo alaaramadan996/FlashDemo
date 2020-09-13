@@ -20,6 +20,7 @@ import com.alaaramadan.flashdemo.data.model.ListGovernorate.ListGovernorate;
 import com.alaaramadan.flashdemo.databinding.FragmentCityListBinding;
 import com.alaaramadan.flashdemo.databinding.FragmentGovernorateListBinding;
 import com.alaaramadan.flashdemo.utils.InternetState;
+import com.alaaramadan.flashdemo.view.activities.AuthActivity;
 import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -49,6 +50,8 @@ public class GovernorateListFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater, R.layout.fragment_governorate_list, container, false);
+        String check="governorate";
+        sharedPreferencesManger.saveData( getActivity(),"check", check);
         apiService = getClient().create(ApiService.class);
         setNameGovernorateRecycler();
 

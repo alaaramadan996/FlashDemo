@@ -1,5 +1,6 @@
 package com.alaaramadan.flashdemo.view.activities;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,10 +17,12 @@ import androidx.navigation.ui.NavigationUI;
 import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.data.api.ApiService;
 import com.alaaramadan.flashdemo.data.model.CheckRegistration.CheckRegistration;
+import com.alaaramadan.flashdemo.data.model.ExternalAds.ExternalAds;
 import com.alaaramadan.flashdemo.databinding.ActivityAuthBinding;
 import com.alaaramadan.flashdemo.utils.InternetState;
 import com.alaaramadan.flashdemo.view.base.BaseActivity;
 import com.alaaramadan.flashdemo.view.fragments.user_cycle.DateFragment;
+import com.alaaramadan.flashdemo.view.fragments.user_cycle.NewAcountStepThreeFragment;
 import com.alaaramadan.flashdemo.view.fragments.user_cycle.NewAcountStepTwoFragment;
 import com.alaaramadan.flashdemo.view.fragments.user_cycle.SignUpClosedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -32,7 +35,9 @@ import static androidx.databinding.DataBindingUtil.setContentView;
 import static com.alaaramadan.flashdemo.data.api.RetrofitClient.getClient;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.changeLang;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.changeLang;
+import static com.alaaramadan.flashdemo.utils.HelperMethod.dismissProgressDialog;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.onCreateErrorToast;
+import static com.alaaramadan.flashdemo.utils.HelperMethod.onLoadImageFromUrl;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.replaceFragment;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.showProgressDialog;
 
@@ -40,18 +45,36 @@ public class AuthActivity extends BaseActivity {
     private ActivityAuthBinding binding;
     private BottomNavigationView bottomNavigationView;
     private ApiService apiService;
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         changeLang(this, "ar");
         super.onCreate( savedInstanceState );
-
         binding= DataBindingUtil. setContentView( this,R.layout.activity_auth );
+        checkFragment();
         apiService = getClient().create(ApiService.class);
+        addExternalAds();
         BottomNavigationView navView = findViewById( R.id.activity_auth_bottom_nav );
         NavController navController = Navigation.findNavController( this, R.id.auth_activity_frameLayout_container );
         NavigationUI.setupWithNavController( navView, navController );
         BottomNav();
     }
+    public void checkFragment(){
+        String check=sharedPreferencesManger.loadData( AuthActivity.this,"check" );
+        if (check=="gender"){
+            replaceFragment( getSupportFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
+        }
+        if (check=="city"){
+            replaceFragment( getSupportFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
+        }
+        if (check=="governorate"){
+            replaceFragment( getSupportFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
+        }
+        if (check=="date"){
+            replaceFragment( getSupportFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
+        }
+    }
+
     public void CheckRegistration(){
      if (InternetState.isConnected( this )){
          showProgressDialog(this, getString(R.string.please_wait));
@@ -70,9 +93,31 @@ public class AuthActivity extends BaseActivity {
                  onCreateErrorToast( AuthActivity.this,t.getMessage() );
              }
          } );
+     }else {
+         dismissProgressDialog();
+         onCreateErrorToast( AuthActivity.this, getString( R.string.no_internet_connection ) );
      }
     }
+    public void addExternalAds(){
+        if (InternetState.isConnected( this )) {
+            apiService.getExternalAds( "get", "ExternalAds", "0" ).enqueue( new Callback<ExternalAds>() {
+                @Override
+                public void onResponse(Call<ExternalAds> call, Response<ExternalAds> response) {
+                    if (response.body().getType() == "success") {
+                        onLoadImageFromUrl( binding.authActivityImageViewAds, response.body().getData().getPlacehold(), context );
+                    } else {
 
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ExternalAds> call, Throwable t) {
+                    onCreateErrorToast( AuthActivity.this, t.getMessage() );
+                }
+            } );
+        }
+
+    }
     public void BottomNav(){
         binding.activityAuthBottomNav.setOnNavigationItemSelectedListener( new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

@@ -17,6 +17,7 @@ import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
 import com.alaaramadan.flashdemo.data.model.ListCity.ListCity;
 import com.alaaramadan.flashdemo.databinding.FragmentCityListBinding;
 import com.alaaramadan.flashdemo.utils.InternetState;
+import com.alaaramadan.flashdemo.view.activities.AuthActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,11 +47,12 @@ public class CityListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_city_list, container, false );
-
         apiService = getClient().create(ApiService.class);
         setNameCitiesRecycler();
         return binding.getRoot();
     }
+
+
 
     private void setNameCitiesRecycler() {
 

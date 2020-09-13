@@ -2,6 +2,7 @@ package com.alaaramadan.flashdemo.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
 import com.alaaramadan.flashdemo.utils.HelperMethod;
+import com.alaaramadan.flashdemo.view.activities.AdvertisementActivity;
 import com.alaaramadan.flashdemo.view.activities.AuthActivity;
 import com.alaaramadan.flashdemo.view.activities.HomeActivity;
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
@@ -24,6 +26,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.app.PendingIntent.getActivity;
+import static androidx.core.content.ContextCompat.startActivity;
 import static com.alaaramadan.flashdemo.data.local.SharedPreferencesManger.CITY_DATA;
 
 public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHolder> {
@@ -71,10 +75,9 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHo
         holder.view.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AuthActivity authActivity=(AuthActivity) activity;
                 sharedPreferencesManger.saveData( activity, CITY_DATA,dataCities.get( position ));
-                HelperMethod.replaceFragment( authActivity.getSupportFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
-
+                Intent intent = new Intent (v.getContext(), AuthActivity.class);
+                context.startActivity( intent );
             }
         } );
 

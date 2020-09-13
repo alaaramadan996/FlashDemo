@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.user_cycle.GenderFragment"
+        android:orientation="vertical"
+        android:background="@color/colorFragment"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/gender_fragment_btn_male"
+            style="@style/tv_style"
+            android:text="@string/male"
+            android:textSize="@dimen/_16ssp" />
+
+        <Button
+            android:id="@+id/gender_fragment_btn_female"
+            android:layout_marginTop="@dimen/_20sdp"
+            style="@style/tv_style"
+            android:text="@string/female"
+            android:textSize="@dimen/_16ssp" />
+
+
+    </LinearLayout>
+</layout>

@@ -48,6 +48,7 @@
                 android:text="@string/login_txt_btn_login"
                 />
             <TextView
+                android:id="@+id/login_fragment_tv_show_message"
                style="@style/txt_res"
                 />
             <Button

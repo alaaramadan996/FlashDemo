@@ -4,11 +4,13 @@ package com.alaaramadan.flashdemo.data.api;
 import com.alaaramadan.flashdemo.data.model.CheckPhone.CheckPhone;
 import com.alaaramadan.flashdemo.data.model.CheckRegistration.CheckRegistration;
 import com.alaaramadan.flashdemo.data.model.ConnectUs.ConnectUs;
+import com.alaaramadan.flashdemo.data.model.ExternalAds.ExternalAds;
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
 import com.alaaramadan.flashdemo.data.model.ListCity.ListCity;
 import com.alaaramadan.flashdemo.data.model.ListGovernorate.ListGovernorate;
 import com.alaaramadan.flashdemo.data.model.ListPrivacyPolicy.ListPrivacyPolicy;
 import com.alaaramadan.flashdemo.data.model.ListUsageAgreement.ListUsageAgreement;
+import com.alaaramadan.flashdemo.data.model.Login.Login;
 import com.alaaramadan.flashdemo.data.model.Registeration.Registeration;
 import com.alaaramadan.flashdemo.data.model.UserRestore.UserRestore;
 
@@ -84,6 +86,21 @@ public interface ApiService {
     @FormUrlEncoded
     Call<ListUsageAgreement> getUsageAgreementList(@Field("mode") String mode,
                                                    @Field("type") String type
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<Login> checkAuth(@Field("mode") String mode,
+                          @Field("type") String type,
+                          @Field("phone") String phone,
+                          @Field("password") String password
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<ExternalAds> getExternalAds(@Field("mode") String mode,
+                                     @Field("type") String type,
+                                     @Field("status") String status
     );
 
    /* //AUTH

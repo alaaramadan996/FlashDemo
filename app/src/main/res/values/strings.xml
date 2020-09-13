@@ -16,7 +16,7 @@
     <string name="my_account">الملف الشخصي</string>
     <string name="security_Account">امن حساب</string>
     <string name="logout">تسجيل الخروج</string>
-    
+
     <!--check_password-->
     <string name="check_password_They_should_be_the_same">يجب ان يكونوا متشابهين</string>
     <string name="check_password_Password_must_be_8_letters_and_numbers">كلمة المرور يجب ان تكون 8 حروف و ارقام</string>
@@ -30,10 +30,28 @@
     <string name="login_txt_tv_phone">رقم الحساب</string>
     <string name="login_txt_tv_password">كلمة المرور</string>
     <string name="login_txt_btn_recovery">استعادة</string>
+    
+    <string name="male">ذكر</string>
+    <string name="female">انثي</string>
+    
+    <!--personal_data-->
+    <string name="Personal_data">البيانات الشخصية</string>
+    <string name="Account_details">بيانات الحساب</string>
+    <string name="gender">الجنس</string>
+    <string name="name">الاسم</string>
+    <string name="date_create">تاريخ الانشاء</string>
+    <string name="birthday">تاريخ الميلاد</string>
+    <string name="city">المدينة</string>
+    <string name="governorate">المحافظة</string>
+    <string name="namber_phone">الجوال</string>
+    <string name="Account_status">حالة الحساب</string>
+    <string name="The_remaining_period">الفترة المتبقية</string>
+    <string name="activate_the_account">تفعيل الحساب</string>
 
 
     <string name="please_wait">من فضلك انتظر...</string>
     <string name="no_internet_connection">لا يوجد إتصال بالإنترنت, برجاء المحاولة لاحقا.</string>
     <string name="error">حدث خطأ ما</string>
     <string name="log_out">هل تريد تسجيل الخروج ؟</string>
+    <string name="please_enter_phone_password">من فضلك ادخل رقم الحساب و كلمة المرور</string>
 </resources>

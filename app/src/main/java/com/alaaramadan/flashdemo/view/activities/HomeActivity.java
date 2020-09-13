@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.core.view.GravityCompat;
+import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.alaaramadan.flashdemo.R;
@@ -21,7 +22,7 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         changeLang(this, "ar");
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_home );
+        binding= DataBindingUtil. setContentView( this,R.layout.activity_home );
         final DrawerLayout drawerLayout = findViewById( R.id.drawerlayout );
         binding.activityHomeBtnNavView.setOnClickListener( new View.OnClickListener() {
             @Override
