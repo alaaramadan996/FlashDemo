@@ -3,6 +3,7 @@ package com.alaaramadan.flashdemo.view.activities;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,11 +47,14 @@ public class AuthActivity extends BaseActivity {
     private BottomNavigationView bottomNavigationView;
     private ApiService apiService;
     private Context context;
+    public String Udid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         changeLang(this, "ar");
         super.onCreate( savedInstanceState );
         binding= DataBindingUtil. setContentView( this,R.layout.activity_auth );
+        Udid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        sharedPreferencesManger.saveData( AuthActivity.this,"udid_string",Udid );
         checkFragment();
         apiService = getClient().create(ApiService.class);
         addExternalAds();

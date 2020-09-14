@@ -36,6 +36,9 @@ public class AdvertisementActivity extends BaseActivity {
         if (check=="gender"){
             replaceFragment( getSupportFragmentManager(),R.id.advertisement_activity_container,new GenderFragment() );
         }
+        if (check=="ads"){
+            replaceFragment( getSupportFragmentManager(),R.id.advertisement_activity_container,new GenderFragment() );
+        }
         if (check=="city"){
             replaceFragment( getSupportFragmentManager(),R.id.advertisement_activity_container,new CityListFragment() );
         }

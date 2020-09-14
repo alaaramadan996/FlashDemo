@@ -3,7 +3,9 @@
     <item>
     <shape>
         <solid android:color="@color/colorEditText"/>
-        <corners android:radius="@dimen/_15sdp"/>
+        <corners android:topLeftRadius="@dimen/_15sdp"
+            android:bottomLeftRadius="@dimen/_15sdp"
+            />
 
     </shape>
    </item>

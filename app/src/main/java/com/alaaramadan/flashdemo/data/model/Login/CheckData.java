@@ -4,7 +4,7 @@ package com.alaaramadan.flashdemo.data.model.Login;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AuthData {
+public class CheckData {
 
     @SerializedName("title")
     @Expose

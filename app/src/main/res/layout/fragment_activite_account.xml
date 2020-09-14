@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -9,16 +10,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.fragments.home.HomeFragment"
+        tools:context=".view.fragments.home.ActiviteAccountFragment"
         android:background="@color/colorFragment"
         android:orientation="vertical"
+
         >
-        <TextView
-            style="@style/btn_style"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="@string/Personal_data"
-            android:background="@drawable/shape_btn_security"
-            />
         <LinearLayout
             android:layout_gravity="top"
             android:layout_marginTop="@dimen/_15sdp"
@@ -34,13 +30,13 @@
                 >
 
                 <TextView
-                    android:id="@+id/home_fragment_tv_prize"
+                    android:id="@+id/activite_account_fragment_tv_required_value"
                     style="@style/et_style"
                     android:inputType="numberPassword"
                     android:maxLength="4"
                     android:password="true" />
                 <TextView
-                    android:text="@string/prize"
+                    android:text="@string/value_requerment"
                     style="@style/tv_style"
                     />
             </LinearLayout>
@@ -49,10 +45,10 @@
                 >
 
                 <TextView
-                    android:id="@+id/home_fragment_tv_state_account"
+                    android:id="@+id/activite_account_fragment_tv_type_payment"
                     style="@style/et_style" />
                 <TextView
-                    android:text="@string/Account_status"
+                    android:text="@string/type_of_pay"
                     style="@style/tv_style"
                     />
             </LinearLayout>
@@ -61,11 +57,11 @@
                 >
 
                 <EditText
-                    android:id="@+id/home_fragment_et_serail_number"
+                    android:id="@+id/activite_account_fragment_et_serail_namber"
                     style="@style/et_style"
                     android:inputType="number"
                     android:maxLength="80"
-                    />
+                     />
                 <TextView
                     android:text="@string/serial_namber"
                     style="@style/tv_style"
@@ -73,21 +69,20 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/home_fragment_btn_try_lucky"
+                android:id="@+id/activite_account_fragment_btn_confirm"
                 style="@style/btn_style"
-                android:text="@string/try_your_luck"
+                android:text="@string/confirm"
                 android:textColor="@color/white"
-
-                />
-            <TextView
-                android:id="@+id/home_fragment_tv_show_message"
-                style="@style/txt_res"
                 android:layout_marginBottom="@dimen/_10sdp"
-
                 />
+
+
+
 
         </LinearLayout>
 
-    </LinearLayout>
 
+    </LinearLayout>
 </layout>
+
+

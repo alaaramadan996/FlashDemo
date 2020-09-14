@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/colorFragment"
+    >
+    <LinearLayout
+
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bk_linear_layout"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+
+        >
+        <LinearLayout
+            style="@style/li_style"
+            >
+
+            <TextView
+                android:id="@+id/item_winners_tv_date_prize"
+                style="@style/et_style" />
+            <TextView
+                android:text="@string/date"
+                style="@style/tv_style"
+                />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/li_style"
+            >
+
+            <TextView
+                android:id="@+id/item_winners_tv_winner_name"
+                style="@style/et_style" />
+            <TextView
+                android:text="@string/winner"
+                style="@style/tv_style"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/li_style"
+            >
+
+            <TextView
+                android:id="@+id/item_winners_tv_winner_phone"
+                style="@style/et_style" />
+            <TextView
+                android:text="@string/namber_phone"
+                style="@style/tv_style"
+                />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/li_style"
+            >
+
+            <TextView
+                android:id="@+id/item_winners_tv_prize"
+                style="@style/et_style" />
+            <TextView
+                android:text="@string/prize"
+                style="@style/tv_style"
+                />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/li_style"
+            >
+
+            <TextView
+                android:id="@+id/item_winners_tv_serial_prize"
+                style="@style/et_style" />
+            <TextView
+                android:text="@string/serial_namber"
+                style="@style/tv_style"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/li_style"
+
+            >
+
+            <TextView
+                android:id="@+id/item_winners_tv_state_prize"
+                style="@style/et_style"
+                />
+            <TextView
+                android:text="@string/state_prize"
+                style="@style/tv_style"
+                />
+        </LinearLayout>
+        <Button
+            android:text="@string/proof"
+            android:textColor="@color/white"
+            android:id="@+id/item_winners_btn_proof"
+            style="@style/btn_style"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
+
+    </LinearLayout>
+</LinearLayout>

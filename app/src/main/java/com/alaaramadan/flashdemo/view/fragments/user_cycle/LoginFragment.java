@@ -2,6 +2,7 @@ package com.alaaramadan.flashdemo.view.fragments.user_cycle;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
 import com.alaaramadan.flashdemo.data.model.Login.Login;
 import com.alaaramadan.flashdemo.databinding.FragmentLoginBinding;
 import com.alaaramadan.flashdemo.utils.InternetState;
+import com.alaaramadan.flashdemo.view.activities.AuthActivity;
 import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
 import retrofit2.Call;
@@ -31,12 +33,15 @@ import static com.alaaramadan.flashdemo.utils.HelperMethod.showProgressDialog;
 public class LoginFragment extends BaseFragment {
     private FragmentLoginBinding binding;
     private ApiService apiService;
+    private String Udid;
     private SharedPreferencesManger sharedPreferencesManger;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_login, container, false  );
+        Udid = Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
+        sharedPreferencesManger.saveData( getActivity(),"udid_string",Udid );
         apiService = getClient().create(ApiService.class);
         checkInput();
         onClickViews();

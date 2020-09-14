@@ -30,10 +30,11 @@
     <string name="login_txt_tv_phone">رقم الحساب</string>
     <string name="login_txt_tv_password">كلمة المرور</string>
     <string name="login_txt_btn_recovery">استعادة</string>
-    
+    <string name="please_enter_pin_code">برجاء ادخال التاكيد الامني المكون من 4 ارقام</string>
+
     <string name="male">ذكر</string>
     <string name="female">انثي</string>
-    
+
     <!--personal_data-->
     <string name="Personal_data">البيانات الشخصية</string>
     <string name="Account_details">بيانات الحساب</string>
@@ -48,6 +49,28 @@
     <string name="The_remaining_period">الفترة المتبقية</string>
     <string name="activate_the_account">تفعيل الحساب</string>
 
+    <!--winner_data-->
+    <string name="winner">الفائز</string>
+    <string name="serial_namber">الرقم المسلسل</string>
+    <string name="prize">الجائزة</string>
+    <string name="date">التاريخ</string>
+    <string name="state_prize">حالة الجائزة</string>
+    <string name="proof">الاثبات</string>
+    <string name="state_ok">الاثبات</string>
+    <string name="state">قيد المعالجة</string>
+
+    <string name="activite">مفعل</string>
+    <string name="no_activite">غير مفعل</string>
+
+    <string name="value_requerment">القيمة المطلوبة</string>
+    <string name="type_of_pay">نوع بطاقة الدفع</string>
+    <string name="confirm">تأكيد</string>
+    <string name="try_your_luck">جرب حظك</string>
+
+    <!--activity_home-->
+    <string name="flash">فلاش</string>
+    <string name="profile_personly">الملف الشخصي</string>
+    <string name="account_security">أمن الحساب</string>
 
     <string name="please_wait">من فضلك انتظر...</string>
     <string name="no_internet_connection">لا يوجد إتصال بالإنترنت, برجاء المحاولة لاحقا.</string>

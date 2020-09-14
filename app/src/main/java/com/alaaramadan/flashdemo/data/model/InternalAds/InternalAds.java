@@ -1,18 +1,18 @@
 
-package com.alaaramadan.flashdemo.data.model.Login;
+package com.alaaramadan.flashdemo.data.model.InternalAds;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Login {
+public class InternalAds {
 
     @SerializedName("type")
     @Expose
     private String type;
     @SerializedName("data")
     @Expose
-    private CheckData data = null;
+    private DataInternalAds data = null;
 
     public String getType() {
         return type;
@@ -22,11 +22,11 @@ public class Login {
         this.type = type;
     }
 
-    public CheckData getData() {
+    public DataInternalAds getData() {
         return data;
     }
 
-    public void setData(CheckData data) {
+    public void setData(DataInternalAds data) {
         this.data = data;
     }
 

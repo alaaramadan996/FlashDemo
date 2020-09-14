@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
 import com.alaaramadan.flashdemo.data.model.ListGovernorate.DataGovernorate;
-import com.alaaramadan.flashdemo.data.model.Login.AuthData;
+import com.alaaramadan.flashdemo.data.model.UserLogin.AuthData;
 import com.google.gson.Gson;
 
 public class SharedPreferencesManger {

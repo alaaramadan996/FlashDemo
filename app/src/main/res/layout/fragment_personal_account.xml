@@ -35,11 +35,8 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
-                    style="@style/et_style"
-                    android:inputType="numberPassword"
-                    android:maxLength="4"
-                    android:password="true" />
+                    android:id="@+id/personal_account_fragment_tv_name_user"
+                    style="@style/et_style" />
                 <TextView
                     android:text="@string/name"
                     style="@style/tv_style"
@@ -50,11 +47,8 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
-                    style="@style/et_style"
-                    android:inputType="numberPassword"
-                    android:maxLength="4"
-                    android:password="true" />
+                    android:id="@+id/personal_account_fragment_tv_phone_user"
+                    style="@style/et_style" />
                 <TextView
                     android:text="@string/namber_phone"
                     style="@style/tv_style"
@@ -66,7 +60,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
+                    android:id="@+id/personal_account_fragment_tv_birthday_user"
                     style="@style/et_style"
                     android:inputType="numberPassword"
                     android:maxLength="4"
@@ -81,7 +75,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
+                    android:id="@+id/personal_account_fragment_tv_gender_user"
                     style="@style/et_style"
                     android:inputType="numberPassword"
                     android:maxLength="4"
@@ -96,7 +90,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
+                    android:id="@+id/personal_account_fragment_tv_governorete_user"
                     style="@style/et_style"
                     android:inputType="numberPassword"
                     android:maxLength="4"
@@ -113,7 +107,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
+                    android:id="@+id/personal_account_fragment_tv_city_user"
                     style="@style/et_style"
                     android:inputType="numberPassword"
                     android:maxLength="4"
@@ -145,7 +139,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
+                    android:id="@+id/personal_account_fragment_tv_date_create"
                     style="@style/et_style"
                     android:inputType="numberPassword"
                     android:maxLength="4"
@@ -160,7 +154,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
+                    android:id="@+id/personal_account_fragment_tv_state_account"
                     style="@style/et_style"
                     android:inputType="numberPassword"
                     android:maxLength="4"
@@ -173,7 +167,7 @@
 
 
             <Button
-                android:id="@+id/new_account_step_five_btn_next"
+                android:id="@+id/personal_account_fragment_btn_activate_the_account"
                 style="@style/btn_style"
                 android:text="@string/activate_the_account"
                 android:textColor="@color/white"
@@ -184,7 +178,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/new_account_step_five_et_pin_code"
+                    android:id="@+id/personal_account_fragment_tv_remaining_period"
                     style="@style/et_style"
                     android:inputType="numberPassword"
                     android:maxLength="4"

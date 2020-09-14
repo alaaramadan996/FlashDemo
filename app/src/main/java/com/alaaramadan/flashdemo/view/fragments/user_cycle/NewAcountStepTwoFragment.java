@@ -42,6 +42,7 @@ public class NewAcountStepTwoFragment extends BaseFragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_new_acount_step_two, container, false );
         apiService = getClient().create(ApiService.class);
+        onBack();
         onClickViews();
 
         return binding.getRoot();
@@ -82,7 +83,7 @@ public class NewAcountStepTwoFragment extends BaseFragment {
             if (phone.length()==11){
                 if (InternetState.isConnected( getActivity() )){
                     showProgressDialog(getActivity(), getString(R.string.please_wait));
-                    apiService.CheckPhone("check","UserPhone",""  ).enqueue( new Callback<CheckPhone>() {
+                    apiService.CheckPhone("check","UserPhone",phone  ).enqueue( new Callback<CheckPhone>() {
                         @Override
                         public void onResponse(Call<CheckPhone> call, Response<CheckPhone> response) {
                             if (response.body().getType()=="success"){

@@ -43,4 +43,6 @@
     <color name="colorButtonLogin">#B43838</color>
     <color name="colorbtnRemmber">#4AA44C</color>
     <color name="colortxtsecurty">#FFE400</color>
+    <color name="color_keybad">#383838</color>
+    <color name="color_keybad_black">#262626</color>
 </resources>

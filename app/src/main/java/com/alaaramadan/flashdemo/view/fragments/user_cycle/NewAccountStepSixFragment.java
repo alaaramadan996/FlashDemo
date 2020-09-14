@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,12 +90,11 @@ public class NewAccountStepSixFragment extends BaseFragment {
     }
 
     private void registerNewUser() {
-        HelperMethod.YourActivity yourActivity=new HelperMethod.YourActivity();
         String phone=sharedPreferencesManger.loadData( getActivity(),"phone" );
         String NameUser=sharedPreferencesManger.loadData( getActivity(),"NameUser" );
         String Gender=sharedPreferencesManger.loadData( getActivity(),"Gender" );
         String DateBirthDay=sharedPreferencesManger.loadData( getActivity(),"DateBirthDay" );
-        String udid=yourActivity.getUdId();
+        String udid= sharedPreferencesManger.loadData( getActivity(),"udid_string" );
         String City=dataCity.getId();
         String Governorate=dataGovernorate.getId();
         String password=sharedPreferencesManger.loadData( getActivity(),"password" );

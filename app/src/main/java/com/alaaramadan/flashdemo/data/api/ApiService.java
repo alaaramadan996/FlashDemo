@@ -5,6 +5,8 @@ import com.alaaramadan.flashdemo.data.model.CheckPhone.CheckPhone;
 import com.alaaramadan.flashdemo.data.model.CheckRegistration.CheckRegistration;
 import com.alaaramadan.flashdemo.data.model.ConnectUs.ConnectUs;
 import com.alaaramadan.flashdemo.data.model.ExternalAds.ExternalAds;
+import com.alaaramadan.flashdemo.data.model.GetWinners.GetWinners;
+import com.alaaramadan.flashdemo.data.model.InternalAds.InternalAds;
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
 import com.alaaramadan.flashdemo.data.model.ListCity.ListCity;
 import com.alaaramadan.flashdemo.data.model.ListGovernorate.ListGovernorate;
@@ -12,6 +14,7 @@ import com.alaaramadan.flashdemo.data.model.ListPrivacyPolicy.ListPrivacyPolicy;
 import com.alaaramadan.flashdemo.data.model.ListUsageAgreement.ListUsageAgreement;
 import com.alaaramadan.flashdemo.data.model.Login.Login;
 import com.alaaramadan.flashdemo.data.model.Registeration.Registeration;
+import com.alaaramadan.flashdemo.data.model.UserLogin.UserLogin;
 import com.alaaramadan.flashdemo.data.model.UserRestore.UserRestore;
 
 import retrofit2.Call;
@@ -98,9 +101,36 @@ public interface ApiService {
 
     @POST("index.php")
     @FormUrlEncoded
+    Call<UserLogin> loginAuth(@Field("mode") String mode,
+                              @Field("type") String type,
+                              @Field("phone") String phone,
+                              @Field("password") String password,
+                              @Field("PIN_code") String PIN_code,
+                              @Field( "udid" ) String udid
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
     Call<ExternalAds> getExternalAds(@Field("mode") String mode,
                                      @Field("type") String type,
                                      @Field("status") String status
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<GetWinners> getWinners(@Field("mode") String mode,
+                                @Field("type") String type,
+                                @Field("static") String apiToken,
+                                @Field("udid") String udid
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<InternalAds> getInternalAds(@Field("mode") String mode,
+                                     @Field("type") String type,
+                                     @Field("status") String status,
+                                     @Field("udid") String udid,
+                                     @Field("static") String api_token
     );
 
    /* //AUTH
