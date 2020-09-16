@@ -38,8 +38,6 @@ public class NewAcountStepThreeFragment extends BaseFragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_new_acount_step_three, container, false );
         apiService = getClient().create(ApiService.class);
-        dataCity=sharedPreferencesManger.loadCityData( getActivity() );
-        dataGovernorate=sharedPreferencesManger.loadGovernorateData( getActivity() );
         loadData();
         onClickViews();
 
@@ -55,10 +53,23 @@ public class NewAcountStepThreeFragment extends BaseFragment {
 
     }
     public void loadData(){
-        binding.newAccountStepThreeEtDate.setText( sharedPreferencesManger.loadData( getActivity(),"DateBirthDay" ) );
-        binding.newAccountStepThreeEtCity.setText( dataCity.getNameAr() );
-        binding.newAccountStepThreeEtGovernorate.setText( dataGovernorate.getNameAr() );
-        binding.newAccountStepThreeEtGender.setText( sharedPreferencesManger.loadData( getActivity(),"Gender" ) );
+        String DateBirthDay=sharedPreferencesManger.loadData( getActivity(),"DateBirthDay" );
+        if(DateBirthDay!=null){
+            binding.newAccountStepThreeEtDate.setText(DateBirthDay );
+        }
+
+        String city=sharedPreferencesManger.loadData( getActivity(),"city" );
+        if(city!=null){
+            binding.newAccountStepThreeEtCity.setText(city );
+        }
+        String gov=sharedPreferencesManger.loadData( getActivity(),"governorate" );
+        if(gov!=null){
+            binding.newAccountStepThreeEtGovernorate.setText(gov );
+        }
+        String Gender=sharedPreferencesManger.loadData( getActivity(),"Gender" );
+        if(Gender!=null){
+            binding.newAccountStepThreeEtGender.setText(Gender );
+        }
     }
     public void saveData(){
         String City =binding.newAccountStepThreeEtCity.getText().toString();
@@ -73,7 +84,7 @@ public class NewAcountStepThreeFragment extends BaseFragment {
         sharedPreferencesManger.saveData( getActivity(),"Gender", Gender);
         sharedPreferencesManger.saveData( getActivity(),"Governorate", Governorate);
         sharedPreferencesManger.saveData( getActivity(),"DateBirthDay", DateBirthday);
-        replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_contain_city,new  NewAcountStepFourFragment() );
+        replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new  NewAcountStepFourFragment() );
         }else {
             binding.newAccountStepThreeTvShowMessage.setText( R.string.error );
         }
@@ -91,23 +102,19 @@ public class NewAcountStepThreeFragment extends BaseFragment {
                      saveData();
                     break;
                 case R.id.new_account_step_three_tv_city:
-                    String check="city";
-                    sharedPreferencesManger.saveData( getActivity(),"check", check);
+                    sharedPreferencesManger.saveData( getActivity(),"check", "3");
                     saveCheck();
                     break;
                 case R.id.new_account_step_three_tv_gov:
-                    String check3="governorate";
-                    sharedPreferencesManger.saveData( getActivity(),"check", check3);
+                    sharedPreferencesManger.saveData( getActivity(),"check", "4");
                     saveCheck();
                     break;
                 case R.id.new_account_step_three_tv_date:
-                    String check2="date";
-                    sharedPreferencesManger.saveData( getActivity(),"check", check2);
+                    sharedPreferencesManger.saveData( getActivity(),"check", "5");
                     saveCheck();
                     break;
                 case R.id.new_account_step_three_tv_gender:
-                    String check4="gender";
-                    sharedPreferencesManger.saveData( getActivity(),"check", check4);
+                    sharedPreferencesManger.saveData( getActivity(),"check", "1");
                     saveCheck();
                     break;
 
@@ -119,7 +126,7 @@ public class NewAcountStepThreeFragment extends BaseFragment {
                 public void run() {
                     view.setEnabled(true);
                 }
-            }, 1000);
+            }, 2500);
         }
     }
   public void saveCheck()

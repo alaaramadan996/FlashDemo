@@ -3,6 +3,8 @@ package com.alaaramadan.flashdemo.view.fragments.user_cycle;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,43 +82,63 @@ public class LoginFragment extends BaseFragment {
     }
 
     public void checkInput(){
-        String phone=binding.loginFragmentEtPhone.getText().toString();
-        String password=binding.loginFragmentEtPassword.getText().toString();
-        binding.loginFragmentEtPhone.setOnFocusChangeListener( new View.OnFocusChangeListener() {
+
+        binding.loginFragmentEtPhone.addTextChangedListener( new TextWatcher() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if ((password.isEmpty())&&(phone.isEmpty())){
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String password=binding.loginFragmentEtPassword.getText().toString();
+                 if( (s.toString().length()==11)&&(password.length()>=8)){
+                     binding.loginFragmentBtnLogin.setBackgroundResource( R.drawable.bk_log_in );
+                 }
+                }
+            } );
+        binding.loginFragmentEtPassword.addTextChangedListener( new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String phone=binding.loginFragmentEtPhone.getText().toString();
+                if((s.toString().length()>=8)&&(phone.length()>=11)){
                     binding.loginFragmentBtnLogin.setBackgroundResource( R.drawable.bk_log_in );
                 }
             }
         } );
 
-        binding.loginFragmentEtPassword.setOnFocusChangeListener( new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if ((password.isEmpty())&&(phone.isEmpty())){
-                    binding.loginFragmentBtnLogin.setBackgroundResource( R.drawable.bk_log_in );
-                }
-            }
-        } );
     }
 
     public void checkLogin(){
         String phone=binding.loginFragmentEtPhone.getText().toString();
         String password=binding.loginFragmentEtPassword.getText().toString();
-        if ((password.isEmpty())&&(phone.isEmpty())) {
+        if ((password!=null)&&(phone!=null)) {
             if (InternetState.isConnected( getActivity() )) {
-                showProgressDialog( getActivity(), getString( R.string.please_wait ) );
                 apiService.checkAuth( "check", "UserPhoneAndPassword", phone, password ).enqueue( new Callback<Login>() {
                     @Override
                     public void onResponse(Call<Login> call, Response<Login> response) {
-                        if (response.body().getType() == "success") {
+                        if (response.body().getType() == 1) {
                             sharedPreferencesManger.saveData( getActivity(),"phone",phone );
                             sharedPreferencesManger.saveData( getActivity(),"password",password );
                             replaceFragment( getFragmentManager(), R.id.auth_activity_frameLayout_container, new SecurityConfirmationFragment() );
 
                         } else {
-                            binding.loginFragmentTvShowMessage.setText( response.body().getData().getTitle() );
+                            binding.loginFragmentTvShowMessage.setText( response.body().getMessage() );
                         }
                     }
 

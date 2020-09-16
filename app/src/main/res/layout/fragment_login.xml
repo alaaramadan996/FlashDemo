@@ -22,6 +22,7 @@
                     android:id="@+id/login_fragment_et_phone"
                     style="@style/et_style"
                     android:maxLength="11"
+                    android:inputType="number"
 
                     />
                 <TextView
@@ -36,6 +37,7 @@
                     android:id="@+id/login_fragment_et_password"
                     android:maxLength="30"
                     style="@style/et_style"
+                    android:inputType="textPassword"
                     />
                 <TextView
                     style="@style/tv_style"

@@ -15,11 +15,12 @@ import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.databinding.FragmentThereIsAWinnerBinding;
 import com.alaaramadan.flashdemo.view.activities.AuthActivity;
 import com.alaaramadan.flashdemo.view.activities.SplashActivity;
+import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
 import static com.alaaramadan.flashdemo.utils.HelperMethod.replaceFragment;
 
 
-public class ThereIsAWinnerFragment extends Fragment {
+public class ThereIsAWinnerFragment extends BaseFragment {
 private FragmentThereIsAWinnerBinding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

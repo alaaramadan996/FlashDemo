@@ -72,9 +72,11 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.ViewHo
 
     private void setAction(ViewHolder holder, int position) {
 
-        holder.view.setOnClickListener( new View.OnClickListener() {
+        holder.textView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPreferencesManger.saveData( activity,"check","city" );
+                sharedPreferencesManger.saveData( activity,"city",dataCities.get( position ).getNameAr() );
                 sharedPreferencesManger.saveData( activity, CITY_DATA,dataCities.get( position ));
                 Intent intent = new Intent (v.getContext(), AuthActivity.class);
                 context.startActivity( intent );

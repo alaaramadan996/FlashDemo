@@ -13,9 +13,10 @@ import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
 import com.alaaramadan.flashdemo.data.model.UserLogin.AuthData;
 import com.alaaramadan.flashdemo.databinding.FragmentPersonalAccountBinding;
+import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
 
-public class PersonalAccountFragment extends Fragment {
+public class PersonalAccountFragment extends BaseFragment {
      private FragmentPersonalAccountBinding binding;
     private SharedPreferencesManger sharedPreferencesManger;
     private AuthData authData;
@@ -37,7 +38,8 @@ public class PersonalAccountFragment extends Fragment {
         binding.personalAccountFragmentTvGenderUser.setText( authData.getGender() );
         binding.personalAccountFragmentTvNameUser.setText( authData.getName() );
         binding.personalAccountFragmentTvGovernoreteUser.setText( authData.getGov() );
-        if (authData.getActivatedAt()=="1"){
+        binding.personalAccountFragmentTvRemainingPeriod.setText( authData.getActivationRemaining() );
+        if (authData.getStatus()=="1"){
             binding.personalAccountFragmentTvStateAccount.setText( R.string.activite );
             binding.personalAccountFragmentBtnActivateTheAccount.setBackgroundResource( R.drawable.bk_log_out );
         }

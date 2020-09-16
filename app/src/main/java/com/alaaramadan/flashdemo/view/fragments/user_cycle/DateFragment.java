@@ -35,7 +35,6 @@ public class DateFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_date, container, false );
-        onBack();
         onClickViews();
 
         binding.datePicker.setOnDateChangedListener( new DatePicker.OnDateChangedListener() {
@@ -85,6 +84,7 @@ public class DateFragment extends BaseFragment {
 
     public void saveCheck()
     {
+        sharedPreferencesManger.saveData( getActivity(),"check","date" );
         Intent intent = new Intent(getActivity(), AuthActivity.class);
         startActivity(intent);
         getActivity().finish();

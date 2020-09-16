@@ -1,7 +1,6 @@
 
 package com.alaaramadan.flashdemo.data.model.ConnectUs;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -9,17 +8,28 @@ public class ConnectUs {
 
     @SerializedName("type")
     @Expose
-    private String type;
+    private Integer type;
+    @SerializedName("message")
+    @Expose
+    private String message;
     @SerializedName("data")
     @Expose
-    private DataConnectUs data = null;
+    private DataConnectUs data;
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public DataConnectUs getData() {

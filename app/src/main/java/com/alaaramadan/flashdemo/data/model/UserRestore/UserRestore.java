@@ -1,7 +1,6 @@
 
 package com.alaaramadan.flashdemo.data.model.UserRestore;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -9,24 +8,35 @@ public class UserRestore {
 
     @SerializedName("type")
     @Expose
-    private String type;
+    private Integer type;
+    @SerializedName("message")
+    @Expose
+    private String message;
     @SerializedName("data")
     @Expose
-    private DataRestore data = null;
+    private Object data;
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
-    public DataRestore getData() {
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Object getData() {
         return data;
     }
 
-    public void setData(DataRestore data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

@@ -2,6 +2,8 @@ package com.alaaramadan.flashdemo.view.fragments.user_cycle;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,9 +35,49 @@ public class NewAcountStepFiveFragment extends BaseFragment {
         setOnClick( binding.newAccountStepFiveBtnNext );
     }
     public void CheckInput(){
+        binding.newAccountStepFiveEtPinCode.addTextChangedListener( new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String pinCodeConfirm=binding.newAccountStepFiveEtPinCodeConfirm.getText().toString();
+                if((s.toString().length()==4)&&(pinCodeConfirm.length()==4)) {
+                    binding.newAccountStepFiveBtnNext.setBackgroundResource( R.drawable.bk_log_in );
+                    sharedPreferencesManger.saveData( getActivity(),"pinCode" ,pinCodeConfirm);
+                }
+            }
+        } );
+        binding.newAccountStepFiveEtPinCode.addTextChangedListener( new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String pinCode=binding.newAccountStepFiveEtPinCode.getText().toString();
+                if((s.toString().length()==4)&&(pinCode.length()==4)){
+                    binding.newAccountStepFiveBtnNext.setBackgroundResource( R.drawable.bk_log_in );
+                    sharedPreferencesManger.saveData( getActivity(),"pinCode" ,pinCode);
+                }
+            }
+        } );
            String pinCode=binding.newAccountStepFiveEtPinCode.getText().toString();
            String pinCodeConfirm=binding.newAccountStepFiveEtPinCodeConfirm.getText().toString();
-           if((pinCode.length()==4)&&(pinCode==pinCodeConfirm)){
+           if((pinCode.length()==4)&&(pinCode.equals( pinCodeConfirm ))){
                sharedPreferencesManger.saveData( getActivity(),"pinCode" ,pinCode);
                replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAccountStepSixFragment() );
            }else {

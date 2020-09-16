@@ -2,12 +2,15 @@ package com.alaaramadan.flashdemo.view.activities;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -27,6 +30,10 @@ import com.alaaramadan.flashdemo.view.fragments.user_cycle.NewAcountStepThreeFra
 import com.alaaramadan.flashdemo.view.fragments.user_cycle.NewAcountStepTwoFragment;
 import com.alaaramadan.flashdemo.view.fragments.user_cycle.SignUpClosedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,13 +62,13 @@ public class AuthActivity extends BaseActivity {
         binding= DataBindingUtil. setContentView( this,R.layout.activity_auth );
         Udid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         sharedPreferencesManger.saveData( AuthActivity.this,"udid_string",Udid );
-        checkFragment();
+         checkFragment();
         apiService = getClient().create(ApiService.class);
         addExternalAds();
         BottomNavigationView navView = findViewById( R.id.activity_auth_bottom_nav );
         NavController navController = Navigation.findNavController( this, R.id.auth_activity_frameLayout_container );
         NavigationUI.setupWithNavController( navView, navController );
-        BottomNav();
+
     }
     public void checkFragment(){
         String check=sharedPreferencesManger.loadData( AuthActivity.this,"check" );
@@ -103,14 +110,15 @@ public class AuthActivity extends BaseActivity {
      }
     }
     public void addExternalAds(){
+        ImageView imageView=findViewById( R.id.auth_activity_ImageView_ads );
         if (InternetState.isConnected( this )) {
             apiService.getExternalAds( "get", "ExternalAds", "0" ).enqueue( new Callback<ExternalAds>() {
                 @Override
                 public void onResponse(Call<ExternalAds> call, Response<ExternalAds> response) {
-                    if (response.body().getType() == "success") {
-                        onLoadImageFromUrl( binding.authActivityImageViewAds, response.body().getData().getPlacehold(), context );
+                    if (response.body().getType() == 1) {
+                        onLoadImageFromUrl( binding.authActivityImageViewAds, "http://flashfolk.com/ARK_flash/" + response.body().getData().getPlacehold(), AuthActivity.this );
                     } else {
-
+                        onCreateErrorToast( AuthActivity.this,response.message() );
                     }
                 }
 

@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        tools:context=".view.activities.AuthActivity"
 
         >
 
@@ -80,20 +81,6 @@
 
 
         </LinearLayout>
-<LinearLayout
-    android:id="@+id/auth_activity_framelayout"
-    android:visibility="gone"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
-    <fragment
-        android:id="@+id/auth_activity_frameLayout_contain_city"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-
-</LinearLayout>
 
 
 

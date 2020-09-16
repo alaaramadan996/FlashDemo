@@ -12,11 +12,13 @@
         tools:context=".view.fragments.user_cycle.CityListFragment"
         android:orientation="vertical"
         android:background="@color/colorFragment"
+        android:gravity="center"
         >
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/city_list_fragment_rv_city"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            />
 
     </LinearLayout>
 </layout>

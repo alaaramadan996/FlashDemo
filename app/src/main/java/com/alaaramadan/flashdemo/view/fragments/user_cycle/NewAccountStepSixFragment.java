@@ -69,7 +69,14 @@ public class NewAccountStepSixFragment extends BaseFragment {
                 case R.id.new_account_step_six_img_condition:
                    binding.newAccountStepSixImgCondition.setVisibility( View.GONE );
                    binding.newAccountStepSixImgConditionOk.setVisibility( View.VISIBLE );
-                   registerNewUser();
+
+                    new Handler().postDelayed( new Runnable() {
+
+                        @Override
+                        public void run() {
+                            registerNewUser();
+                        }
+                    }, 1000);
                     break;
                 case R.id.new_account_step_six_img_condition_ok:
                     binding.newAccountStepSixImgCondition.setVisibility( View.VISIBLE );
@@ -100,16 +107,15 @@ public class NewAccountStepSixFragment extends BaseFragment {
         String password=sharedPreferencesManger.loadData( getActivity(),"password" );
         String pinCode=sharedPreferencesManger.loadData( getActivity(),"pinCode" );
         if (InternetState.isConnected( getActivity() )){
-            showProgressDialog(getActivity(), getString(R.string.please_wait));
             apiService.Registration( "set" ,"UserRegister",phone,pinCode,pinCode,password,password,NameUser,udid,Gender,DateBirthDay,City,Governorate).enqueue( new Callback<Registeration>() {
                 @Override
                 public void onResponse(Call<Registeration> call, Response<Registeration> response) {
-                    if(response.body().getType()=="success"){
+                    if(response.body().getType()==1){
                         sharedPreferencesManger.clean( getActivity() );
                         replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new LoginFragment() );
                     }
                     else {
-                        onCreateErrorToast(getActivity(), response.body().getData().getTitle());
+                        onCreateErrorToast(getActivity(), response.body().getMessage());
                         dismissProgressDialog();
                     }
                 }

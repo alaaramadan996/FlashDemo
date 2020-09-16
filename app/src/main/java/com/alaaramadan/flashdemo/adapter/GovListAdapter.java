@@ -70,13 +70,14 @@ public class GovListAdapter extends RecyclerView.Adapter<GovListAdapter.ViewHold
 
     private void setAction(ViewHolder holder, int position) {
 
-        holder.view.setOnClickListener( new View.OnClickListener() {
+        holder.textView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPreferencesManger.saveData( activity,"check","governorate" );
+                sharedPreferencesManger.saveData( activity,"governorate",dataGovernorates.get( position ).getNameAr() );
                 sharedPreferencesManger.saveData( activity, GOV_DATA,dataGovernorates.get( position ));
                 Intent intent = new Intent (v.getContext(), AuthActivity.class);
                 context.startActivity( intent );
-                AuthActivity authActivity=(AuthActivity) activity;
 
             }
         } );

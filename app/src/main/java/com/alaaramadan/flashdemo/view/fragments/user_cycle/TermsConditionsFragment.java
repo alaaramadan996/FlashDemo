@@ -52,7 +52,6 @@ public class TermsConditionsFragment extends BaseFragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_terms_conditions, container, false );
         apiService = getClient().create(ApiService.class);
-        onBack();
         onClickViews();
         setPrivacyPolicyList();
         setUsageAgreementList();
@@ -75,15 +74,15 @@ public class TermsConditionsFragment extends BaseFragment {
 
     private void getPrivacyPolicyList() {
         if (InternetState.isConnected( getActivity() )){
-            showProgressDialog(getActivity(), getString(R.string.please_wait));
+
             apiService.getPrivacyPolicyList( "get","PrivacyPolicy" ).enqueue( new Callback<ListPrivacyPolicy>() {
                 @Override
                 public void onResponse(Call<ListPrivacyPolicy> call, Response<ListPrivacyPolicy> response) {
-                    if (response.body().getType()=="success"){
+                    if (response.body().getType()==1){
                         dataPrivacyPolicies.addAll( response.body().getData() );
                         policyListAdapter.notifyDataSetChanged();
                     }else {
-                        onCreateErrorToast( getActivity(),response.body().getType() );
+                        onCreateErrorToast( getActivity(),response.body().getMessage() );
                     }
                 }
 
@@ -119,15 +118,15 @@ public class TermsConditionsFragment extends BaseFragment {
 
     private void getUsageAgreementList() {
         if (InternetState.isConnected( getActivity() )){
-            showProgressDialog(getActivity(), getString(R.string.please_wait));
+
             apiService.getUsageAgreementList( "get","UsageAgreement" ).enqueue( new Callback<ListUsageAgreement>() {
                 @Override
                 public void onResponse(Call<ListUsageAgreement> call, Response<ListUsageAgreement> response) {
-                    if (response.body().getType()=="success"){
+                    if (response.body().getType()==1){
                         dataUsageAgreements.addAll( response.body().getData() );
                         usageAgreementListAdapter.notifyDataSetChanged();
                     }else {
-                        onCreateErrorToast( getActivity(),response.body().getType() );
+                        onCreateErrorToast( getActivity(),response.body().getMessage() );
                     }
 
                 }
@@ -160,14 +159,14 @@ public class TermsConditionsFragment extends BaseFragment {
                 case R.id.terms_condition_fragment_btn_privacy_policy:
                     binding.termsConditionFragmentRvPrivacyPolicy.setVisibility( View.VISIBLE );
                     binding.termsConditionFragmentRvUsageAgreement.setVisibility( View.GONE );
-                    binding.termsConditionFragmentRvUsageAgreement.setBackgroundResource( R.drawable.bk_log_out );
+                    binding.termsConditionFragmentBtnUsageAgreement.setBackgroundResource( R.drawable.bk_log_out );
                     binding.termsConditionFragmentBtnPrivacyPolicy.setBackgroundResource( R.drawable.bk_log_in );
                     break;
                 case R.id.terms_condition_fragment_btn_usage_agreement:
                     binding.termsConditionFragmentRvPrivacyPolicy.setVisibility( View.GONE );
                     binding.termsConditionFragmentRvUsageAgreement.setVisibility( View.VISIBLE );
                     binding.termsConditionFragmentBtnPrivacyPolicy.setBackgroundResource( R.drawable.bk_log_out );
-                    binding.termsConditionFragmentRvUsageAgreement.setBackgroundResource( R.drawable.bk_log_in );
+                    binding.termsConditionFragmentBtnUsageAgreement.setBackgroundResource( R.drawable.bk_log_in );
                     break;
 
             }

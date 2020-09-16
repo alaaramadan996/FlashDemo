@@ -42,7 +42,7 @@ public class NewAcountStepTwoFragment extends BaseFragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_new_acount_step_two, container, false );
         apiService = getClient().create(ApiService.class);
-        onBack();
+
         onClickViews();
 
         return binding.getRoot();
@@ -82,16 +82,16 @@ public class NewAcountStepTwoFragment extends BaseFragment {
         }else {
             if (phone.length()==11){
                 if (InternetState.isConnected( getActivity() )){
-                    showProgressDialog(getActivity(), getString(R.string.please_wait));
+
                     apiService.CheckPhone("check","UserPhone",phone  ).enqueue( new Callback<CheckPhone>() {
                         @Override
                         public void onResponse(Call<CheckPhone> call, Response<CheckPhone> response) {
-                            if (response.body().getType()=="success"){
+                            if (response.body().getType()==1){
                                 sharedPreferencesManger.saveData( getActivity(),"phone",phone );
                                replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepThreeFragment() );
                             }
                             else {
-                                binding.newAccountStepTwoTvShowMessage.setText( response.body().getData().getTitle() );
+                                binding.newAccountStepTwoTvShowMessage.setText( response.body().getMessage() );
                             }
                         }
 

@@ -2,6 +2,8 @@ package com.alaaramadan.flashdemo.view.fragments.user_cycle;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,7 @@ public class AccountRecoveryFragment extends BaseFragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_account_recovery, container, false );
         apiService = getClient().create(ApiService.class);
+        checkInput();
         onClickViews();
         return binding.getRoot();
     }
@@ -49,7 +52,7 @@ public class AccountRecoveryFragment extends BaseFragment {
         synchronized (view) {
             view.setEnabled(false);
             switch (view.getId()) {
-                case R.id.new_account_step_two_btn_next:
+                case R.id.account_recovery_btn_send:
                     sendRequest();
                     break;
             }
@@ -63,21 +66,41 @@ public class AccountRecoveryFragment extends BaseFragment {
             }, 1000);
         }
     }
+        private void checkInput(){
+           binding.accountRecoveryEtPhone.addTextChangedListener( new TextWatcher() {
+               @Override
+               public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+               }
+
+               @Override
+               public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+               }
+
+               @Override
+               public void afterTextChanged(Editable s) {
+                   if((s.toString().length()==11)){
+                       binding.accountRecoveryBtnSend.setBackgroundResource( R.drawable.bk_log_in );
+                   }
+               }
+           } );
+        }
 
     private void sendRequest() {
         String phone=binding.accountRecoveryEtPhone.getText().toString();
-        if (phone.isEmpty())
+        if (phone!=null)
         {
             if (InternetState.isConnected( getActivity() )){
-                showProgressDialog(getActivity(), getString(R.string.please_wait));
+
                 apiService.restoreAccount("set","UserRestore",phone).enqueue( new Callback<UserRestore>() {
                     @Override
                     public void onResponse(Call<UserRestore> call, Response<UserRestore> response) {
-                        if (response.body().getType()=="error"){
-                            binding.accountRecoveryTvShowMassage.setText( response.body().getData().getTitle() );
+                        if (response.body().getType()==0){
+                            binding.accountRecoveryTvShowMassage.setText( response.body().getMessage() );
 
                         }else {
-                            binding.accountRecoveryTvShowMassage.setText( "'طلبك قيد المعالجة" );
+                            binding.accountRecoveryTvShowMassage.setText( response.body().getMessage() );
                         }
                     }
 

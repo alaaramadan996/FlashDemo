@@ -1,10 +1,12 @@
 package com.alaaramadan.flashdemo.data.api;
 
 
+import com.alaaramadan.flashdemo.data.CheckWinnerToday.CheckWinnerToday;
 import com.alaaramadan.flashdemo.data.model.CheckPhone.CheckPhone;
 import com.alaaramadan.flashdemo.data.model.CheckRegistration.CheckRegistration;
 import com.alaaramadan.flashdemo.data.model.ConnectUs.ConnectUs;
 import com.alaaramadan.flashdemo.data.model.ExternalAds.ExternalAds;
+import com.alaaramadan.flashdemo.data.model.Flash.Flash;
 import com.alaaramadan.flashdemo.data.model.GetWinners.GetWinners;
 import com.alaaramadan.flashdemo.data.model.InternalAds.InternalAds;
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
@@ -131,6 +133,23 @@ public interface ApiService {
                                      @Field("status") String status,
                                      @Field("udid") String udid,
                                      @Field("static") String api_token
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<Flash> setFlash(@Field("mode") String mode,
+                         @Field("type") String type,
+                         @Field("static") String Api_token,
+                         @Field("udid") String udid,
+                         @Field("code") String code
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<CheckWinnerToday> checkWinner(@Field("mode") String mode,
+                                       @Field("type") String type,
+                                       @Field("static") String Api_token,
+                                       @Field("udid") String udid
     );
 
    /* //AUTH

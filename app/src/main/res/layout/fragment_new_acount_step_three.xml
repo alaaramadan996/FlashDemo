@@ -5,7 +5,9 @@
     <data>
 
     </data>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +39,7 @@
                 android:layout_marginEnd="@dimen/_200sdp"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:gravity="center"
-                android:text=" 3/6"
+                android:text=" 2/5"
                 android:textColor="@color/colorFragment"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold" />
@@ -146,9 +148,11 @@
         <TextView
             android:id="@+id/new_account_step_three_tv_show_message"
             style="@style/txt_res"
+            android:layout_marginBottom="@dimen/_25sdp"
 
             />
 
 
     </LinearLayout>
+</ScrollView>
 </layout>

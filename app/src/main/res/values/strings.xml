@@ -31,6 +31,7 @@
     <string name="login_txt_tv_password">كلمة المرور</string>
     <string name="login_txt_btn_recovery">استعادة</string>
     <string name="please_enter_pin_code">برجاء ادخال التاكيد الامني المكون من 4 ارقام</string>
+    <string name="should_same">يجب ان يكونوا متشابهين</string>
 
     <string name="male">ذكر</string>
     <string name="female">انثي</string>
@@ -67,10 +68,18 @@
     <string name="confirm">تأكيد</string>
     <string name="try_your_luck">جرب حظك</string>
 
+    <string name="password_current">كلمة المرور الحالية</string>
+    <string name="pin_code_new">التأكيد الامني الجديد</string>
+    <string name="pin_code_new_confirm">أعادة التأكيد الامني</string>
+    <string name="password_new">كلمة المرور الجديد</string>
+    <string name="password_new_confirm">اعادة كلمة المرور</string>
+    <string name="should_enter_code">يجب ادخال كود</string>
+
     <!--activity_home-->
-    <string name="flash">فلاش</string>
     <string name="profile_personly">الملف الشخصي</string>
     <string name="account_security">أمن الحساب</string>
+
+    <string name="terms_and_condation">الشروط و الاحكام</string>
 
     <string name="please_wait">من فضلك انتظر...</string>
     <string name="no_internet_connection">لا يوجد إتصال بالإنترنت, برجاء المحاولة لاحقا.</string>

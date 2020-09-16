@@ -6,9 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class DataRegsteration {
 
-    @SerializedName("title")
-    @Expose
-    private String title;
     @SerializedName("id")
     @Expose
     private String id;
@@ -18,7 +15,6 @@ public class DataRegsteration {
     @SerializedName("phone")
     @Expose
     private String phone;
-
     @SerializedName("gender")
     @Expose
     private String gender;
@@ -63,13 +59,6 @@ public class DataRegsteration {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getGender() {

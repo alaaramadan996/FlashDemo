@@ -11,11 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.databinding.FragmentYouAreTheWinnerBinding;
+import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
 import static com.alaaramadan.flashdemo.utils.HelperMethod.replaceFragment;
 
 
-public class YouAreTheWinnerFragment extends Fragment {
+public class YouAreTheWinnerFragment extends BaseFragment {
     private FragmentYouAreTheWinnerBinding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

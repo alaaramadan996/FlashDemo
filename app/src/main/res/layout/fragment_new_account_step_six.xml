@@ -17,21 +17,23 @@
 
         <ImageView
             android:id="@+id/new_account_step_six_img_condition"
-            android:layout_marginStart="@dimen/_25sdp"
-            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
              android:src="@drawable/ic_iconcondition"
+            android:layout_marginBottom="@dimen/_25sdp"
 
             />
         <ImageView
             android:id="@+id/new_account_step_six_img_condition_ok"
-            android:layout_marginStart="@dimen/_25sdp"
-            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_iconcondition_ok"
             android:visibility="gone"
+            android:layout_marginBottom="@dimen/_25sdp"
             />
 
 

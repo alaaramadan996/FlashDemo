@@ -75,11 +75,10 @@ public class GovernorateListFragment extends BaseFragment {
     }
     private void getNameGovernorateList() {
         if (InternetState.isConnected( getActivity() )){
-            showProgressDialog(getActivity(), getString(R.string.please_wait));
             apiService.getGovernorateList( "get","SystemGovs" ).enqueue( new Callback<ListGovernorate>() {
                 @Override
                 public void onResponse(Call<ListGovernorate> call, Response<ListGovernorate> response) {
-                    if (response.body().getType()=="success"){
+                    if (response.body().getType()==1){
                         dataGovernorates.addAll( response.body().getData() );
                         govListAdapter.notifyDataSetChanged();
 

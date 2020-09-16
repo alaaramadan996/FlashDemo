@@ -1,10 +1,10 @@
 
-package com.alaaramadan.flashdemo.data.model.UserLogin;
+package com.alaaramadan.flashdemo.data.model.Flash;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserLogin {
+public class Flash {
 
     @SerializedName("type")
     @Expose
@@ -14,7 +14,7 @@ public class UserLogin {
     private String message;
     @SerializedName("data")
     @Expose
-    private AuthData data;
+    private Object data;
 
     public Integer getType() {
         return type;
@@ -32,11 +32,11 @@ public class UserLogin {
         this.message = message;
     }
 
-    public AuthData getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(AuthData data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

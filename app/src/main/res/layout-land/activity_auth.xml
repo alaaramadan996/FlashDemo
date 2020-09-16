@@ -12,14 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        tools:context=".view.activities.AuthActivity"
 
         >
 
 
         <LinearLayout
-            android:id="@+id/app_bar"
+
+            android:id="@+id/auth_activity_app_bar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_40sdp"
             android:background="@color/colorApp"
             android:gravity="center_vertical"
             >
@@ -32,7 +34,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="@dimen/_30sdp"
+
+            android:id="@+id/auth_activity_linear_layout_content"
+            android:layout_marginTop="@dimen/_40sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="0dp"
@@ -40,8 +44,9 @@
             tools:context=".view.activities.AuthActivity">
 
             <ImageView
+                android:id="@+id/auth_activity_ImageView_ads"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_180sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:layout_marginBottom="@dimen/_2sdp"
                 />
@@ -58,10 +63,9 @@
                 android:background="@color/colorApp"
                 app:itemIconTint="@drawable/bottom_nav_txt_colar"
                 app:itemTextColor="@drawable/bottom_nav_txt_colar"
-                app:menu="@menu/menu_navigation"
                 app:labelVisibilityMode="labeled"
-
-               />
+                app:menu="@menu/menu_navigation"
+                />
 
 
             <fragment
@@ -81,6 +85,19 @@
 
 
 
+        <TextView
+
+            android:id="@+id/activity_auth_tv_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0dp"
+            android:background="@color/colorApp"
+            android:gravity="start|center_vertical"
+            android:text="  ALL RIGHTS RESERVED"
+            android:textColor="@color/colorText" />
 
 
     </RelativeLayout>

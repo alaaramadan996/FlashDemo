@@ -3,6 +3,7 @@ package com.alaaramadan.flashdemo.view.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +14,14 @@ import com.alaaramadan.flashdemo.view.base.BaseActivity;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.changeLang;
 
 public class SplashActivity extends BaseActivity {
-
-
+    private String Udid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         changeLang(this, "ar");
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_splash );
-
+        Udid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        sharedPreferencesManger.saveData( SplashActivity.this,"udid_string",Udid );
         new Handler().postDelayed( new Runnable() {
             @Override
             public void run() {

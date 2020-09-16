@@ -40,17 +40,17 @@ public class ConnectUsFragment extends BaseFragment {
 
     public void getDataConnectUs(){
         if (InternetState.isConnected( getActivity() )){
-            showProgressDialog(getActivity(), getString(R.string.please_wait));
+
             apiService.getConnectUs( "get" ,"ContactUs").enqueue( new Callback<ConnectUs>() {
                 @Override
                 public void onResponse(Call<ConnectUs> call, Response<ConnectUs> response) {
-                    if (response.body().getType()=="success"){
+                    if (response.body().getType()==1){
                         binding.connectFragmentUsTvFb.setText( response.body().getData().getFacebook() );
                         binding.connectFragmentUsTvLocation.setText( response.body().getData().getLocation() );
                         binding.connectFragmentUsTvTelephone.setText( response.body().getData().getPhone() );
                         binding.connectFragmentUsTvWhatsUp.setText( response.body().getData().getWhatsApp());
                     }else {
-                        onCreateErrorToast( getActivity(),response.body().getType() );
+                        onCreateErrorToast( getActivity(),response.body().getMessage() );
                     }
 
 
@@ -58,7 +58,7 @@ public class ConnectUsFragment extends BaseFragment {
 
                 @Override
                 public void onFailure(Call<ConnectUs> call, Throwable t) {
-
+                    onCreateErrorToast(getActivity(), getString(R.string.error));
                 }
             } );
 

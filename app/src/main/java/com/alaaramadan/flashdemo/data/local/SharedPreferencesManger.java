@@ -103,7 +103,7 @@ public static void saveDateApp(String value_Key,String value_data)
         DataGovernorate dataGovernorate = null;
 
         Gson gson = new Gson();
-        if (loadData(activity, CITY_DATA) != null) {
+        if (loadData(activity, GOV_DATA) != null) {
             dataGovernorate = gson.fromJson(loadData(activity, GOV_DATA), DataGovernorate.class);
         }
 

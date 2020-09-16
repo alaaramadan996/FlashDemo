@@ -12,9 +12,6 @@ public class AuthData {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("title")
-    @Expose
-    private String title;
     @SerializedName("phone")
     @Expose
     private String phone;
@@ -142,11 +139,4 @@ public class AuthData {
         this.activationRemaining = activationRemaining;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }

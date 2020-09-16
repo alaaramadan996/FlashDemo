@@ -9,17 +9,28 @@ public class ListUsageAgreement {
 
     @SerializedName("type")
     @Expose
-    private String type;
+    private Integer type;
+    @SerializedName("message")
+    @Expose
+    private String message;
     @SerializedName("data")
     @Expose
     private List<DataUsageAgreement> data = null;
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public List<DataUsageAgreement> getData() {

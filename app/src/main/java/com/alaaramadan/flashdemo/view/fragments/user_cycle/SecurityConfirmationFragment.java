@@ -43,13 +43,14 @@ public class SecurityConfirmationFragment extends BaseFragment {
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_security_confirmation, container, false );
         apiService = getClient().create(ApiService.class);
         checkInput();
-        onBack();
+
         onClickViews();
         return binding.getRoot();
     }
 
     private void onClickViews() {
         setOnClick( binding.securityConfirmationFragmentBtnConfirm );
+
     }
     @Override
     public void onClickItem(final View view) {
@@ -57,12 +58,8 @@ public class SecurityConfirmationFragment extends BaseFragment {
         synchronized (view) {
             view.setEnabled(false);
             switch (view.getId()) {
-                case R.id.login_fragment_btn_login:
+                case R.id.security_confirmation_fragment_btn_confirm:
                     Login();
-                    break;
-                case R.id.login_fragment_btn_recovery:
-                    replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new AccountRecoveryFragment() );
-
                     break;
 
             }
@@ -80,7 +77,7 @@ public class SecurityConfirmationFragment extends BaseFragment {
         binding.securityConfirmationFragmentEtPinCode.setOnFocusChangeListener( new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (binding.securityConfirmationFragmentEtPinCode.getText().toString().length()==4){
+                if (binding.securityConfirmationFragmentEtPinCode.getText().toString()!=null){
                     binding.securityConfirmationFragmentBtnConfirm.setBackgroundResource( R.drawable.bk_log_in );
                 }
             }
@@ -88,23 +85,22 @@ public class SecurityConfirmationFragment extends BaseFragment {
     }
     private void Login() {
         String pin_code=binding.securityConfirmationFragmentEtPinCode.getText().toString();
-        if (pin_code.length()==4){
+        if (pin_code!=null){
             String password=sharedPreferencesManger.loadData( getActivity(),"password" );
             String phone=sharedPreferencesManger.loadData( getActivity(),"phone" );
             String udid=sharedPreferencesManger.loadData( getActivity(),"udid_string" );
             if (InternetState.isConnected( getActivity() )){
-                showProgressDialog(getActivity(), getString(R.string.please_wait));
                 apiService.loginAuth( "check" ,"login",phone,password,pin_code,udid).enqueue( new Callback<UserLogin>() {
                     @Override
                     public void onResponse(Call<UserLogin> call, Response<UserLogin> response) {
-                        if (response.body().getType()=="success"){
-                            sharedPreferencesManger.saveData( getActivity(),"AuthData",response.body().getData() );
+                        if (response.body().getType()==1){
+                            sharedPreferencesManger.saveData( getActivity(),SharedPreferencesManger.AUTH_DATA,response.body().getData() );
                             if (response.body().getData().getInternalAds()==1){
+                                sharedPreferencesManger.saveData( getActivity(),"check", "2");
                                 Intent intent=new Intent( getActivity(), AdvertisementActivity.class );
                                 startActivity( intent );
                                 getActivity().finish();
-                                String check="ads";
-                                sharedPreferencesManger.saveData( getActivity(),"check",check );
+
                             }if (response.body().getData().getInternalAds()==0){
                             Intent intent=new Intent( getActivity(), HomeActivity.class );
                             startActivity( intent );
@@ -112,7 +108,7 @@ public class SecurityConfirmationFragment extends BaseFragment {
                             }
                         }
                         else {
-                            binding.securityConfirmationFragmentTvShowMessage.setText( response.body().getData().getTitle() );
+                            binding.securityConfirmationFragmentTvShowMessage.setText( response.body().getMessage() );
                         }
                     }
 

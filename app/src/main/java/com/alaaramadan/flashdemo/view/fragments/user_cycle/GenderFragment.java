@@ -51,11 +51,11 @@ public class GenderFragment extends BaseFragment {
             view.setEnabled(false);
             switch (view.getId()) {
                 case R.id.gender_fragment_btn_female:
-                    sharedPreferencesManger.saveData( getActivity(),"Gender","ذكر" );
+                    sharedPreferencesManger.saveData( getActivity(),"Gender","انثي" );
                     saveCheck();
                     break;
                 case R.id.gender_fragment_btn_male:
-                    sharedPreferencesManger.saveData( getActivity(),"Gender","انثي" );
+                    sharedPreferencesManger.saveData( getActivity(),"Gender","ذكر" );
                     saveCheck();
                     break;
 
@@ -73,6 +73,7 @@ public class GenderFragment extends BaseFragment {
 
     public void saveCheck()
     {
+        sharedPreferencesManger.saveData( getActivity(),"check","gender" );
         Intent intent = new Intent(getActivity(), AuthActivity.class);
         startActivity(intent);
         getActivity().finish();

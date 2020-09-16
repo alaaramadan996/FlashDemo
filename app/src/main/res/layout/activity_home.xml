@@ -9,51 +9,14 @@
 
     </data>
 
-    <RelativeLayout
-        android:id="@+id/drawerlayout"
+    <androidx.drawerlayout.widget.DrawerLayout
+       android:id="@+id/drawerlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.activities.HomeActivity"
 
         >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:background="@color/colorApp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            >
 
-            <ImageView
-                android:id="@+id/home_activity_img_flash"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="@dimen/_14sdp"
-                android:layout_marginEnd="@dimen/_225sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:src="@drawable/logo_app_bar" />
-
-            <ImageView
-                android:id="@+id/activity_home_btn_nav_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="fill_horizontal"
-                android:layout_marginStart="@dimen/_265sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginBottom="@dimen/_5sdp"
-                android:src="@drawable/ic_baseline_dehaze_24" />
-        </RelativeLayout>
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
@@ -61,85 +24,28 @@
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_gravity="start"
+            android:layout_gravity="end"
             app:itemBackground="@drawable/bk_btn_nav_home"
             android:layout_marginBottom="@dimen/_70sdp"
             android:background="@drawable/bk_nav_home"
-
+            app:itemTextAppearance="@color/white"
             android:layout_marginStart="@dimen/_150sdp"
             android:layout_marginTop="@dimen/_50sdp"
 
 
             >
-             <ScrollView
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-
-                >
-
-                <Button
-                    android:id="@+id/home_activity_btn_flash"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    style="@style/btn_nav_2"
-                    android:text="@string/flash"
-
-                    />
-                <Button
-                    android:id="@+id/home_activity_btn_account_personal"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    style="@style/btn_nav_2"
-                    android:text="@string/profile_personly"
-                    />
-                <Button
-                    android:id="@+id/home_activity_btn_account_security"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    style="@style/btn_nav_2"
-                    android:text="@string/account_security"
-                    />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    style="@style/btn_nav_2"
-                    android:text="@string/logout"
-                    android:background="@drawable/bk_btn_nav_view_red"
-                    />
-
-
-            </LinearLayout>
-              </ScrollView>
+           <FrameLayout
+               android:id="@+id/home_activity_nav_view"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"/>
 
 
 
         </com.google.android.material.navigation.NavigationView>
-
-        <TextView
+        <include
+            layout="@layout/activity_home_containt"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_height="match_parent" />
 
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="292dp"
-            android:layout_marginBottom="0dp"
-            android:background="@color/colorApp"
-            android:gravity="start|center_vertical"
-            android:text="  ALL RIGHTS RESERVED"
-            android:textColor="@color/colorText" />
-        <FrameLayout
-            android:id="@+id/home_activity_frame_layout_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:layout_marginBottom="@dimen/_35sdp"
-            />
-
-    </RelativeLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

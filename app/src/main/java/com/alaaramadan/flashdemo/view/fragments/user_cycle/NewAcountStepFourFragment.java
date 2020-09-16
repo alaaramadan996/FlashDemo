@@ -2,6 +2,9 @@ package com.alaaramadan.flashdemo.view.fragments.user_cycle;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,9 @@ import com.alaaramadan.flashdemo.R;
 import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
 import com.alaaramadan.flashdemo.databinding.FragmentNewAcountStepFourBinding;
 import com.alaaramadan.flashdemo.view.base.BaseFragment;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.alaaramadan.flashdemo.utils.HelperMethod.disappearKeypad;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.replaceFragment;
@@ -26,8 +32,7 @@ public class NewAcountStepFourFragment extends BaseFragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_new_acount_step_four, container, false );
         onClickViews();
-        checkInputConfirmPassword();
-        checkInputPassword();
+        checkInput();
         return binding.getRoot();
     }
 
@@ -69,15 +74,23 @@ public class NewAcountStepFourFragment extends BaseFragment {
     private void checkPassword() {
         String password =binding.newAccountStepFourEtPassword.getText().toString();
         String confirm =binding.newAccountStepFourEtConfirmPassword.getText().toString();
-        if (password==confirm)
+        if (password.equals(confirm))
         {
-            if (password.length()>8){
+              if (!password.matches( "[0-9]+" )){
+            if (!password.contains("[a-zA-Z]+")&&(password.length()>=8))
+            {
                 sharedPreferencesManger.saveData( getActivity(),"password" ,password);
                 replaceFragment( getFragmentManager(),R.id.auth_activity_frameLayout_container,new NewAcountStepFiveFragment() );
             }
-            else {
-                binding.newAccountStepFourEtShowMessage.setText( R.string.check_password_They_should_be_the_same );
-            }
+            else
+                {
+                binding.newAccountStepFourEtShowMessage.setText( R.string.check_password_Password_must_be_8_letters_and_numbers );
+                }
+              }
+              else {
+                  binding.newAccountStepFourEtShowMessage.setText( R.string.check_password_Password_must_be_8_letters_and_numbers );
+              }
+
 
         }else {
             binding.newAccountStepFourEtShowMessage.setText( R.string.check_password_They_should_be_the_same );
@@ -85,37 +98,48 @@ public class NewAcountStepFourFragment extends BaseFragment {
     }
 
 
-    public void checkInputPassword(){
-        binding.newAccountStepFourEtPassword.setOnFocusChangeListener( new View.OnFocusChangeListener() {
+    public void checkInput(){
+        binding.newAccountStepFourEtPassword.addTextChangedListener( new TextWatcher() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus){
-                    if (binding.newAccountStepFourEtPassword.getText().toString().length()<8){
-                        binding.newAccountStepFourEtShowMessage.setText( R.string.check_password_Password_must_be_8_letters_and_numbers );
-                    }
-                    String password=binding.newAccountStepFourEtPassword.getText().toString();
-                    String confirm_password=binding.newAccountStepFourEtConfirmPassword.getText().toString();
-                    if (password==confirm_password){
-                        binding.newAccountStepFourBtnNext.setBackgroundResource( R.drawable.bk_log_in );
-                    }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String confirm_password=binding.newAccountStepFourEtConfirmPassword.getText().toString();
+                if((s.toString().length()>=8)&&(confirm_password.length()>=8)){
+                    binding.newAccountStepFourBtnNext.setBackgroundResource( R.drawable.bk_log_in );
+
+                }else {
+                    binding.newAccountStepFourEtShowMessage.setText( R.string.check_password_Password_must_be_8_letters_and_numbers );
                 }
             }
         } );
-    }
-
-    public void checkInputConfirmPassword(){
-        binding.newAccountStepFourEtConfirmPassword.setOnFocusChangeListener( new View.OnFocusChangeListener() {
+        binding.newAccountStepFourEtConfirmPassword.addTextChangedListener( new TextWatcher() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus){
-                    if (binding.newAccountStepFourEtPassword.getText().toString().length()<8){
-                        binding.newAccountStepFourEtShowMessage.setText( R.string.check_password_Password_must_be_8_letters_and_numbers );
-                    }
-                    String password=binding.newAccountStepFourEtPassword.getText().toString();
-                    String confirm_password=binding.newAccountStepFourEtConfirmPassword.getText().toString();
-                    if (password==confirm_password){
-                        binding.newAccountStepFourBtnNext.setBackgroundResource( R.drawable.bk_log_in );
-                    }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String password=binding.newAccountStepFourEtPassword.getText().toString();
+                if((s.toString().length()>=8)&&(password.length()>=8)){
+                    binding.newAccountStepFourBtnNext.setBackgroundResource( R.drawable.bk_log_in );
+
+                }else {
+                    binding.newAccountStepFourEtShowMessage.setText( R.string.check_password_Password_must_be_8_letters_and_numbers );
                 }
             }
         } );

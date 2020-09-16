@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/bottom_nav_auth_new_account"
-        android:name="com.alaaramadan.flashdemo.view.fragments.user_cycle.NewAcountStepOneFragment"
+        android:name="com.alaaramadan.flashdemo.view.fragments.user_cycle.NewAcountStepTwoFragment"
         android:label="@string/txt_new_account"
         tools:layout="@layout/fragment_new_acount_step_two" />
 

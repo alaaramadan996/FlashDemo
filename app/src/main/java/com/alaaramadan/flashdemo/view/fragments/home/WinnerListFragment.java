@@ -21,6 +21,7 @@ import com.alaaramadan.flashdemo.data.model.ListCity.ListCity;
 import com.alaaramadan.flashdemo.databinding.FragmentWinnerListBinding;
 import com.alaaramadan.flashdemo.utils.HelperMethod;
 import com.alaaramadan.flashdemo.utils.InternetState;
+import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ import static com.alaaramadan.flashdemo.utils.HelperMethod.onCreateErrorToast;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.showProgressDialog;
 
 
-public class WinnerListFragment extends Fragment {
+public class WinnerListFragment extends BaseFragment {
     private FragmentWinnerListBinding binding;
     private WinnerListAdapter winnerListAdapter;
     private ApiService apiService;
@@ -48,10 +49,11 @@ public class WinnerListFragment extends Fragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater, R.layout.fragment_winner_list, container, false );
         apiService = getClient().create(ApiService.class);
+        setWinnerRecycler();
         return binding.getRoot();
     }
 
-    private void setNameCitiesRecycler() {
+    private void setWinnerRecycler() {
 
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         binding.winnerFragmentListRvWinner.setLayoutManager(layoutManager);
@@ -70,7 +72,7 @@ public class WinnerListFragment extends Fragment {
     private void getWinnerList() {
        String udId= sharedPreferencesManger.loadData( getActivity(),"udid_string" );
         if (InternetState.isConnected( getActivity() )){
-            showProgressDialog(getActivity(), getString(R.string.please_wait));
+
             apiService.getWinners( "get" ,"winners","",udId).enqueue( new Callback<GetWinners>() {
                 @Override
                 public void onResponse(Call<GetWinners> call, Response<GetWinners> response) {

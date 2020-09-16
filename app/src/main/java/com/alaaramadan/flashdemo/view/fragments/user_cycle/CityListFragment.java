@@ -15,9 +15,11 @@ import com.alaaramadan.flashdemo.data.api.ApiService;
 import com.alaaramadan.flashdemo.data.local.SharedPreferencesManger;
 import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
 import com.alaaramadan.flashdemo.data.model.ListCity.ListCity;
+import com.alaaramadan.flashdemo.data.model.ListGovernorate.DataGovernorate;
 import com.alaaramadan.flashdemo.databinding.FragmentCityListBinding;
 import com.alaaramadan.flashdemo.utils.InternetState;
 import com.alaaramadan.flashdemo.view.activities.AuthActivity;
+import com.alaaramadan.flashdemo.view.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,7 @@ import static com.alaaramadan.flashdemo.utils.HelperMethod.onCreateErrorToast;
 import static com.alaaramadan.flashdemo.utils.HelperMethod.showProgressDialog;
 
 
-public class CityListFragment extends Fragment {
+public class CityListFragment extends BaseFragment {
 
     private FragmentCityListBinding binding;
 
@@ -41,13 +43,14 @@ public class CityListFragment extends Fragment {
     private CityListAdapter cityListAdapter ;
     private SharedPreferencesManger sharedPreferencesManger;
     private ApiService apiService;
-
+    private DataGovernorate dataGovernorate;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,R.layout.fragment_city_list, container, false );
         apiService = getClient().create(ApiService.class);
+        dataGovernorate=sharedPreferencesManger.loadGovernorateData( getActivity() );
         setNameCitiesRecycler();
         return binding.getRoot();
     }
@@ -71,16 +74,16 @@ public class CityListFragment extends Fragment {
     }
     private void getNameCityList() {
         if (InternetState.isConnected( getActivity() )){
-            showProgressDialog(getActivity(), getString(R.string.please_wait));
-            apiService.getCityList( "get","SystemCity","12" ).enqueue( new Callback<ListCity>() {
+
+            apiService.getCityList( "get","SystemCity",dataGovernorate.getId()).enqueue( new Callback<ListCity>() {
                 @Override
                 public void onResponse(Call<ListCity> call, Response<ListCity> response) {
-                    if (response.body().getType()=="success"){
+                    if (response.body().getType()==1){
                         dataCities.addAll( response.body().getData() );
                         cityListAdapter.notifyDataSetChanged();
 
                     }else {
-                        onCreateErrorToast( getActivity(),response.body().getType() );
+                        onCreateErrorToast( getActivity(),response.body().getMessage() );
                     }
                 }
 
