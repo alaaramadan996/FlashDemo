@@ -60,17 +60,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:layout_editor_absoluteY="0dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-       <androidx.recyclerview.widget.RecyclerView
-           android:id="@+id/terms_condition_fragment_rv_privacy_policy"
-           android:layout_marginTop="@dimen/_10sdp"
-           android:layout_marginBottom="@dimen/_20sdp"
-           android:layout_marginEnd="@dimen/_15sdp"
-           android:layout_marginStart="@dimen/_15sdp"
-           android:background="@drawable/bk_rv_terms"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:visibility="gone"
-           />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/terms_condition_fragment_rv_privacy_policy"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:background="@drawable/bk_rv_terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/terms_condition_fragment_rv_usage_agreement"
             android:layout_marginTop="@dimen/_10sdp"

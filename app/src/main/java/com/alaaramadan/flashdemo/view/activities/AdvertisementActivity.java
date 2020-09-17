@@ -47,6 +47,8 @@ public class AdvertisementActivity extends BaseActivity {
 
 
     }
+
+
     public void checkFragment(int check2){
          int gender=1;
         if (check2==gender){

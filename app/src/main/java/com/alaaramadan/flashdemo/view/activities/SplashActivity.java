@@ -8,18 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.alaaramadan.flashdemo.R;
+import com.alaaramadan.flashdemo.databinding.ActivitySplashBinding;
 import com.alaaramadan.flashdemo.view.base.BaseActivity;
 
 import static com.alaaramadan.flashdemo.utils.HelperMethod.changeLang;
 
 public class SplashActivity extends BaseActivity {
     private String Udid;
+    private ActivitySplashBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         changeLang(this, "ar");
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_splash );
+        binding= DataBindingUtil.setContentView( this,R.layout.activity_splash );
         Udid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         sharedPreferencesManger.saveData( SplashActivity.this,"udid_string",Udid );
         new Handler().postDelayed( new Runnable() {

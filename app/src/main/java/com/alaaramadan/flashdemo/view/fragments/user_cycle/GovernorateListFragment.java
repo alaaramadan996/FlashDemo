@@ -58,6 +58,7 @@ public class GovernorateListFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     private void setNameGovernorateRecycler() {
 
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);

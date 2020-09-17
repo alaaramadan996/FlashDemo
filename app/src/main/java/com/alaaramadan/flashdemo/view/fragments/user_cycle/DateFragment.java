@@ -49,6 +49,7 @@ public class DateFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     private void onClickViews() {
         setOnClick( binding.datePicker );
         setOnClick( binding.dateFragmentBtnCancel );

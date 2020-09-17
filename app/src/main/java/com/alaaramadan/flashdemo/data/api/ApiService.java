@@ -1,7 +1,7 @@
 package com.alaaramadan.flashdemo.data.api;
 
 
-import com.alaaramadan.flashdemo.data.CheckWinnerToday.CheckWinnerToday;
+import com.alaaramadan.flashdemo.data.model.CheckWinner.CheckWinnerToday;
 import com.alaaramadan.flashdemo.data.model.CheckPhone.CheckPhone;
 import com.alaaramadan.flashdemo.data.model.CheckRegistration.CheckRegistration;
 import com.alaaramadan.flashdemo.data.model.ConnectUs.ConnectUs;
@@ -9,7 +9,6 @@ import com.alaaramadan.flashdemo.data.model.ExternalAds.ExternalAds;
 import com.alaaramadan.flashdemo.data.model.Flash.Flash;
 import com.alaaramadan.flashdemo.data.model.GetWinners.GetWinners;
 import com.alaaramadan.flashdemo.data.model.InternalAds.InternalAds;
-import com.alaaramadan.flashdemo.data.model.ListCity.DataCity;
 import com.alaaramadan.flashdemo.data.model.ListCity.ListCity;
 import com.alaaramadan.flashdemo.data.model.ListGovernorate.ListGovernorate;
 import com.alaaramadan.flashdemo.data.model.ListPrivacyPolicy.ListPrivacyPolicy;

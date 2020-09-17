@@ -58,6 +58,7 @@ public class TermsConditionsFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     public void setPrivacyPolicyList(){
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         binding.termsConditionFragmentRvPrivacyPolicy.setLayoutManager(layoutManager);

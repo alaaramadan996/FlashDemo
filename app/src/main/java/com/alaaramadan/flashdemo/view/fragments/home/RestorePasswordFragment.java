@@ -30,6 +30,7 @@ public class RestorePasswordFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater,  R.layout.fragment_restore_password, container, false);
+        onClickViews();
         return binding.getRoot();
     }
 

@@ -22,4 +22,5 @@ public class NewAccountSecurityFragment extends BaseFragment {
 
         return binding.getRoot();
     }
+
 }

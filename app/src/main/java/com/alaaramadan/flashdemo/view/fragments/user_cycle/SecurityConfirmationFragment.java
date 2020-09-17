@@ -48,6 +48,7 @@ public class SecurityConfirmationFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     private void onClickViews() {
         setOnClick( binding.securityConfirmationFragmentBtnConfirm );
 

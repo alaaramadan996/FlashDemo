@@ -65,7 +65,7 @@
                 app:itemTextColor="@drawable/bottom_nav_txt_colar"
                 app:labelVisibilityMode="labeled"
                 app:menu="@menu/menu_navigation"
-               />
+                />
 
 
             <fragment

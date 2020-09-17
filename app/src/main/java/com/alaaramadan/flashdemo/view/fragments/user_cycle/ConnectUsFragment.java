@@ -38,6 +38,7 @@ public class ConnectUsFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     public void getDataConnectUs(){
         if (InternetState.isConnected( getActivity() )){
 

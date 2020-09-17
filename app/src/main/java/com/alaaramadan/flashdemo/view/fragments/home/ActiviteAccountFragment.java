@@ -25,7 +25,6 @@ public class ActiviteAccountFragment extends BaseFragment {
         // Inflate the layout for this fragment
         binding= DataBindingUtil.inflate( inflater, R.layout.fragment_activite_account, container, false);
         onClickViews();
-        onBack();
         return binding.getRoot();
     }
     private void onClickViews() {

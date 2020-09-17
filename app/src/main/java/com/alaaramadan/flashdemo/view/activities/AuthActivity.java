@@ -1,5 +1,6 @@
 package com.alaaramadan.flashdemo.view.activities;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -70,6 +71,9 @@ public class AuthActivity extends BaseActivity {
         NavigationUI.setupWithNavController( navView, navController );
 
     }
+
+
+
     public void checkFragment(){
         String check=sharedPreferencesManger.loadData( AuthActivity.this,"check" );
         if (check=="gender"){

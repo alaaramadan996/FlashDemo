@@ -36,7 +36,6 @@ public class GenderFragment extends BaseFragment {
         return binding.getRoot();
     }
 
-
     private void onClickViews() {
         setOnClick( binding.genderFragmentBtnMale );
         setOnClick( binding.genderFragmentBtnFemale );

@@ -1,10 +1,10 @@
 
-package com.alaaramadan.flashdemo.data.CheckWinnerToday;
+package com.alaaramadan.flashdemo.data.model.CheckWinner;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DataCheck {
+public class dataCheckWinner {
 
     @SerializedName("id")
     @Expose

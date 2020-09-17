@@ -42,6 +42,8 @@ public class AccountRecoveryFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
+
     private void onClickViews() {
         setOnClick( binding.accountRecoveryBtnSend );
     }

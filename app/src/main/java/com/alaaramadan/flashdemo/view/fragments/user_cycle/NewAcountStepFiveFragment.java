@@ -31,6 +31,7 @@ public class NewAcountStepFiveFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     private void onClickViews() {
         setOnClick( binding.newAccountStepFiveBtnNext );
     }

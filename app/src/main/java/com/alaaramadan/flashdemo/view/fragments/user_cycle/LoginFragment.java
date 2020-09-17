@@ -50,6 +50,7 @@ public class LoginFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     private void onClickViews() {
         setOnClick( binding.loginFragmentBtnLogin );
         setOnClick( binding.loginFragmentBtnRecovery );

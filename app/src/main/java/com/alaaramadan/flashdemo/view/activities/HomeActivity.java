@@ -1,5 +1,6 @@
 package com.alaaramadan.flashdemo.view.activities;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,17 +34,18 @@ import static com.alaaramadan.flashdemo.utils.HelperMethod.replaceFragment;
 public class HomeActivity extends BaseActivity {
     private ActivityHomeBinding binding;
     private ActivityHomeContaintBinding homeContaintBinding;
-
+    public  DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         changeLang( this, "ar" );
         super.onCreate( savedInstanceState );
         binding = DataBindingUtil.setContentView( this, R.layout.activity_home );
-        replaceFragment( getSupportFragmentManager(),R.id.home_activity_nav_view,new NavigationViewFragment() );
+        drawerLayout = findViewById( R.id.drawerlayout );
+        drawerLayout.openDrawer( GravityCompat.END );
+       // replaceFragment( getSupportFragmentManager(),R.id.home_activity_nav_view,new NavigationViewFragment() );
 //       item.setBackgroundResource( R.drawable.bk_btn_nav_view_red );
         replaceFragment( getSupportFragmentManager(), R.id.home_activity_frame_layout_container, new HomeFragment() );
         onClockItem();
-
 
     }
 
@@ -78,11 +80,11 @@ public class HomeActivity extends BaseActivity {
     } );*/
 
         ImageView imageView = findViewById( R.id.activity_home_btn_nav_view );
-        final DrawerLayout drawerLayout = findViewById( R.id.drawerlayout );
         imageView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 drawerLayout.openDrawer( GravityCompat.END );
+
             }
         } );
         ImageView imageVie = findViewById( R.id.home_activity_img_flash );

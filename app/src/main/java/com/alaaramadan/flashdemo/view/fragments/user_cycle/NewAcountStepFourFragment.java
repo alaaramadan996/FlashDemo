@@ -36,6 +36,7 @@ public class NewAcountStepFourFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     private void onClickViews() {
         setOnClick( binding.newAccountStepFourBtnNext );
         setOnClick( binding.newAccountStepFourEtPassword );

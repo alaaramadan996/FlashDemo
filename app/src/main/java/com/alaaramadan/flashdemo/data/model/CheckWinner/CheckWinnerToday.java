@@ -1,11 +1,11 @@
 
-package com.alaaramadan.flashdemo.data.model.GetWinners;
+package com.alaaramadan.flashdemo.data.model.CheckWinner;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class GetWinners {
+public class CheckWinnerToday {
 
     @SerializedName("type")
     @Expose
@@ -15,7 +15,7 @@ public class GetWinners {
     private String message;
     @SerializedName("data")
     @Expose
-    private List<DataWinner> data = null;
+    private List<dataCheckWinner> data = null;
 
     public Integer getType() {
         return type;
@@ -33,11 +33,11 @@ public class GetWinners {
         this.message = message;
     }
 
-    public List<DataWinner> getData() {
+    public List<dataCheckWinner> getData() {
         return data;
     }
 
-    public void setData(List<DataWinner> data) {
+    public void setData(List<dataCheckWinner> data) {
         this.data = data;
     }
 

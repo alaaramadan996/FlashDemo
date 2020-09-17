@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 
 import static com.alaaramadan.flashdemo.data.local.SharedPreferencesManger.CITY_DATA;
 
-public class WinnerListAdapter extends RecyclerView.Adapter<WinnerListAdapter.ViewHolder> {
+public class WinnersListAdapter extends RecyclerView.Adapter<WinnersListAdapter.ViewHolder> {
 
 
     private Context context;
@@ -36,7 +36,7 @@ public class WinnerListAdapter extends RecyclerView.Adapter<WinnerListAdapter.Vi
     private SharedPreferencesManger sharedPreferencesManger;
 
 
-    public WinnerListAdapter(Context context, Activity activity
+    public WinnersListAdapter(Context context, Activity activity
             , List<DataWinner> dataWinners ) {
         this.context = context;
         this.activity = activity;
@@ -61,18 +61,18 @@ public class WinnerListAdapter extends RecyclerView.Adapter<WinnerListAdapter.Vi
 
 
     public void setData(ViewHolder holder,int position){
-        position =position;
+        positions =position;
         holder.tvDatePrize.setText( dataWinners.get( position ).getTime() );
         holder.tvNameWinner.setText( dataWinners.get( position ).getName() );
         holder.tvPrize.setText( dataWinners.get( position ).getPrizeInfo() );
         holder.tvSerialPrize.setText( dataWinners.get( position ).getCode() );
         holder.tvWinnerPhone.setText( dataWinners.get( position ).getPhone() );
-        if (dataWinners.get( position ).getDeliveryStatus()=="1")
+        if (dataWinners.get( position ).getDeliveryStatus().equals( "1" ))
         {
             holder.btnWinnerProof.setBackgroundResource( R.drawable.bk_log_in );
             holder.tvStatePrize.setText( R.string.state_ok );
         }
-        if (dataWinners.get( position ).getDeliveryStatus()=="0")
+        if (dataWinners.get( position ).getDeliveryStatus().equals( "0" ))
         {
             holder.tvStatePrize.setText( R.string.state );
         }
@@ -89,7 +89,6 @@ public class WinnerListAdapter extends RecyclerView.Adapter<WinnerListAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         @BindView( R.id.item_winners_tv_date_prize )
         TextView tvDatePrize;
         @BindView( R.id.item_winners_tv_prize )

@@ -55,6 +55,7 @@ public class NewAccountStepSixFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     private void onClickViews() {
         setOnClick( binding.newAccountStepSixImgCondition );
         setOnClick( binding.newAccountStepSixImgConditionOk );

@@ -49,7 +49,6 @@ public class NewAcountStepTwoFragment extends BaseFragment {
     }
 
 
-
     private void onClickViews() {
         setOnClick( binding.newAccountStepTwoBtnNext );
     }

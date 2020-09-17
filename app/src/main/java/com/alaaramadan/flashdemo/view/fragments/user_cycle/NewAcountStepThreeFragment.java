@@ -44,6 +44,7 @@ public class NewAcountStepThreeFragment extends BaseFragment {
         return binding.getRoot();
     }
 
+
     private void onClickViews() {
         setOnClick( binding.newAccountStepThreeBtnNext );
         setOnClick( binding.newAccountStepThreeTvCity );
