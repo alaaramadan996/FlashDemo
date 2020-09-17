@@ -1,12 +1,15 @@
 package com.alaaramadan.flashdemo.data.api;
 
 
+import com.alaaramadan.flashdemo.data.model.ChangePinCode.ChangePinCode;
+import com.alaaramadan.flashdemo.data.model.CheckOldPassword.CheckOldPassword;
 import com.alaaramadan.flashdemo.data.model.CheckWinner.CheckWinnerToday;
 import com.alaaramadan.flashdemo.data.model.CheckPhone.CheckPhone;
 import com.alaaramadan.flashdemo.data.model.CheckRegistration.CheckRegistration;
 import com.alaaramadan.flashdemo.data.model.ConnectUs.ConnectUs;
 import com.alaaramadan.flashdemo.data.model.ExternalAds.ExternalAds;
 import com.alaaramadan.flashdemo.data.model.Flash.Flash;
+import com.alaaramadan.flashdemo.data.model.GetActivationValues.GetActivationValues;
 import com.alaaramadan.flashdemo.data.model.GetWinners.GetWinners;
 import com.alaaramadan.flashdemo.data.model.InternalAds.InternalAds;
 import com.alaaramadan.flashdemo.data.model.ListCity.ListCity;
@@ -14,6 +17,7 @@ import com.alaaramadan.flashdemo.data.model.ListGovernorate.ListGovernorate;
 import com.alaaramadan.flashdemo.data.model.ListPrivacyPolicy.ListPrivacyPolicy;
 import com.alaaramadan.flashdemo.data.model.ListUsageAgreement.ListUsageAgreement;
 import com.alaaramadan.flashdemo.data.model.Login.Login;
+import com.alaaramadan.flashdemo.data.model.MatchPassword.MatchPassword;
 import com.alaaramadan.flashdemo.data.model.Registeration.Registeration;
 import com.alaaramadan.flashdemo.data.model.UserLogin.UserLogin;
 import com.alaaramadan.flashdemo.data.model.UserRestore.UserRestore;
@@ -151,6 +155,46 @@ public interface ApiService {
                                        @Field("udid") String udid
     );
 
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<CheckOldPassword> checkOldPassword(@Field("mode") String mode,
+                                            @Field("type") String type,
+                                            @Field("static") String Api_token,
+                                            @Field("udid") String udid,
+                                            @Field( "old_password" ) String old_password
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<MatchPassword> matchPassword(@Field("mode") String mode,
+                                      @Field("type") String type,
+                                      @Field("static") String Api_token,
+                                      @Field("udid") String udid,
+                                      @Field( "new_password" ) String new_password,
+                                      @Field( "new_password2" ) String new_password2,
+                                      @Field( "old_password" ) String old_password
+    );
+
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<ChangePinCode> changePinCode(@Field("mode") String mode,
+                                      @Field("type") String type,
+                                      @Field("static") String Api_token,
+                                      @Field("udid") String udid,
+                                      @Field( "old_password" ) String old_password,
+                                      @Field( "new_password" ) String new_password,
+                                      @Field( "new_password2" ) String new_password2,
+                                      @Field( "new_PIN" ) String new_PIN,
+                                      @Field( "new_PIN2" ) String new_PIN2
+
+    );
+    @POST("index.php")
+    @FormUrlEncoded
+    Call<GetActivationValues> getActivationValues(@Field("mode") String mode,
+                                                  @Field("type") String type,
+                                                  @Field("static") String Api_token,
+                                                  @Field("udid") String udid
+    );
    /* //AUTH
     @POST("login")
     @FormUrlEncoded

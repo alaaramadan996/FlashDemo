@@ -128,7 +128,7 @@ public class LoginFragment extends BaseFragment {
     public void checkLogin(){
         String phone=binding.loginFragmentEtPhone.getText().toString();
         String password=binding.loginFragmentEtPassword.getText().toString();
-        if ((password!=null)&&(phone!=null)) {
+        if ((!password.isEmpty())&&(!phone.isEmpty())) {
             if (InternetState.isConnected( getActivity() )) {
                 apiService.checkAuth( "check", "UserPhoneAndPassword", phone, password ).enqueue( new Callback<Login>() {
                     @Override
